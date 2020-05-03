@@ -1,0 +1,90 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+class Installer
+  class << self
+    def call(app_name)
+      remove_git
+      rename_app app_name
+      install_readme
+      reinit_git
+      self_destruct
+
+      puts "Your app is ready to go!"
+    end
+
+    private
+
+    def remove_git
+      shell "rm -rf .git"
+    end
+
+    # Borrowed from github.com/carbonfive/raygun
+    def rename_app(app_name)
+      dash_name = app_name.tr("_", "-")
+      snake_name = app_name.tr("-", "_")
+      camel_name = camelize(snake_name)
+      title_name = titleize(snake_name)
+
+      {
+        "AppPrototype"  => camel_name,
+        "app-prototype" => dash_name,
+        "app_prototype" => snake_name,
+        "App Prototype" => title_name
+      }.each do |proto_name, new_name|
+        shell "find . -type f -print | xargs #{sed_i} 's/#{proto_name}/#{new_name}/g'"
+      end
+
+      %w[d f].each do |find_type|
+        shell "find . -depth -type #{find_type} -name '*app_prototype*' " \
+              "-exec bash -c 'mv $0 ${0/app_prototype/#{snake_name}}' {} \\;"
+      end
+    end
+
+    def reinit_git
+      shell "git init"
+    end
+
+    def install_readme
+      shell "mv README.app.md README.md"
+    end
+
+    def self_destruct
+      shell "rm bin/install"
+    end
+
+    def camelize(string)
+      result = string.sub(/^[a-z\d]*/) { $&.capitalize }
+      result.gsub(%r{(?:_|(/))([a-z\d]*)}) { "#{Regexp.last_match(1)}#{Regexp.last_match(2).capitalize}" }
+    end
+
+    def titleize(underscored_string)
+      result = underscored_string.tr("_", " ")
+      result.gsub(/\b('?[a-z])/) { Regexp.last_match(1).capitalize }
+    end
+
+    def shell(command)
+      `#{command}`.tap do |output|
+        unless $?.success?
+          raise "#{command} failed with status #{$?.exitstatus}\n\n#{output}"
+        end
+      end
+    end
+
+    # Distinguish BSD vs GNU sed with the --version flag (only present in GNU sed).
+    def sed_i
+      @sed_i ||= begin
+        `sed --version &> /dev/null`
+        $?.success? ? "sed -i" : "sed -i ''"
+      end
+    end
+  end
+end
+
+project_name = ARGV[0]
+
+unless project_name
+  raise "Please provide a snake_cased project name, e.g.\n\n./bin/install my_app"
+end
+
+Installer.(project_name)
