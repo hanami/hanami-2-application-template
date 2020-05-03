@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# run - run the application CLI.
+
+require "bundler/setup"
+require "hanami/cli/application/cli"
+require_relative "../lib/hanami/cli/commands"
+
+Hanami::CLI::Application::CLI.new.call

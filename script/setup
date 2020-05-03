@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# script/setup: Set up application for the first time after cloning, or set it
+# back to the initial first unused state.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+script/bootstrap
+
+echo "==> Copying config files"
+if [ -f ".env-example" ] && [ ! -f ".env" ]; then
+  cp .env-example .env
+fi
+if [ -f ".env.test-example" ] && [ ! -f ".env.test" ]; then
+  cp .env.test-example .env.test
+fi
+
+echo "==> Setting up database…"
+bin/run db create
+bin/run db create -e test
+bin/run db reset
+bin/run db reset -e test
+bin/run db seed
+
+echo "==> App is now ready to go!"
