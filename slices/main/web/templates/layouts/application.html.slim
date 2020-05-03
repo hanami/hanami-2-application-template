@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    title
+      - if content_for :title
+        ==> content_for :title
+        ' /
+      ' AppPrototype
+    meta name="title" content="AppPrototype"
+    link rel="stylesheet" type="text/css" href=assets["main__public.css"]
+    script src=assets["main__public.js"] defer=true
+
+  body
+    == yield

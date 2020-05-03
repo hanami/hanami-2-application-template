@@ -1,0 +1,21 @@
+{
+  "name": "app_prototype",
+  "description": "Asset compilation with webpack",
+  "version": "1.0.0",
+  "author": "Your name here",
+  "repository": {},
+  "dependencies": {},
+  "devDependencies": {
+    "application-assets": "file:.assets"
+  },
+  "engines": {
+    "node": ">= 12.13.0 <13.0",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "PORT=8080 concurrently \"node ./.assets/scripts/build.js development\" \"serve ./.assets/tmp\" --kill-others --prefix-colors=yellow.dim,cyan.dim",
+    "build": "NODE_ENV=production node ./.assets/scripts/build.js production",
+    "build-production": "yarn run build",
+    "heroku-postbuild": "yarn run build"
+  }
+}
