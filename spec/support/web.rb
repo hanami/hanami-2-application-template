@@ -31,9 +31,12 @@ Capybara.register_driver :cuprite do |app|
 
   Capybara::Cuprite::Driver.new(
     app,
+    browser_options: browser_options,
+    # headless: false,
+    js_errors: false,
     # logger: $stderr,
-    window_size: [1600, 1600],
-    browser_options: browser_options
+    # slowmo: 0.5,
+    window_size: [1600, 1600]
   )
 end
 
