@@ -4,20 +4,14 @@
 class Installer
   class << self
     def call(app_name)
-      remove_git
       rename_app app_name
       install_readme
-      reinit_git
       self_destruct
 
       puts "Your app is ready to go!"
     end
 
     private
-
-    def remove_git
-      shell "rm -rf .git"
-    end
 
     # Borrowed from github.com/carbonfive/raygun
     def rename_app(app_name)
@@ -39,10 +33,6 @@ class Installer
         shell "find . -depth -type #{find_type} -name '*app_prototype*' " \
               "-exec bash -c 'mv $0 ${0/app_prototype/#{snake_name}}' {} \\;"
       end
-    end
-
-    def reinit_git
-      shell "git init"
     end
 
     def install_readme
