@@ -4,13 +4,12 @@
 require "capybara/cuprite"
 require "capybara/rspec"
 require "capybara-screenshot/rspec"
+require "rack"
 require "rack/test"
 
 Dir[SPEC_ROOT.join("support/web/*.rb").to_s].each(&method(:require))
 
-Hanami.boot
-
-Capybara.app = Hanami.app
+Capybara.app = Rack::Builder.parse_file(SPEC_ROOT.join("../config.ru").realpath.to_s).first
 Capybara.server = :puma, {Silent: true}
 Capybara.server_port = 3001
 Capybara.test_id = "data-test"
