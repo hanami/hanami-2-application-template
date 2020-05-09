@@ -1,15 +1,21 @@
-# Hanami 2 Application Tempalte
+# Hanami 2 Application Template
 
-To create an app from this template:
+If you’ve been interested in exploring or testing our in-progress Hanami 2 work,
+this application template can help you start! [Learn more in my announcement
+post][ann].
+
+[ann]: https://timriley.info/writing/2020/05/07/sharing-my-hanami-2-application-template/
+
+To create an application from this template, click the “Use this template”
+button above.
+
+Then, once you’ve cloned your new repository, run:
 
 ```sh
-git clone https://github.com/timriley/hanami-2-application-template.git my_app
-cd my_app
-./bin/install my_app
+./bin/install name_of_your_app
 ```
 
-This template is already a standalone, fully functional Hanami 2 application.
-Running `./bin/install` will rename all instances of `AppPrototype` (in all its
-case formatting) to the name of your new application.
+This will rename all instances of `AppPrototype` within (in all its case
+variations) to the name of your application.
 
 See [README.app.md](README.app.md) for details of the generated application.
