@@ -17,11 +17,11 @@ gem "rake", "~> 13.0"
 
 # Database
 gem "pg", "~> 1.2"
-gem "rom", github: "rom-rb/rom"
-gem "rom-factory", github: "rom-rb/rom-factory" # For DB seeds as well as tests
-gem "rom-sql", github: "rom-rb/rom-sql"
-gem "sequel", "4.49"
-gem "sequel_pg", "~> 1.7"
+gem "rom", "~> 5.2"
+gem "rom-factory", "~> 0.10"
+gem "rom-sql", "~> 3.2"
+gem "sequel", "~> 5.32"
+gem "sequel_pg", "~> 1.13"
 
 # Application
 gem "dry-matcher", "~> 0.8"

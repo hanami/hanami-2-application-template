@@ -56,40 +56,6 @@ GIT
       dry-inflector (~> 0.1)
       tilt (~> 2.0, >= 2.0.6)
 
-GIT
-  remote: https://github.com/rom-rb/rom
-  revision: d139e9ff994bfd8a960ccd4e95e23ee252613a83
-  specs:
-    rom (5.2.1)
-      rom-changeset (~> 5.2)
-      rom-core (~> 5.2)
-      rom-repository (~> 5.2)
-    rom-changeset (5.2.1)
-      dry-core (~> 0.4)
-      dry-transformer (~> 0.1)
-      rom-core (~> 5.2)
-
-GIT
-  remote: https://github.com/rom-rb/rom-factory
-  revision: afe96befeb16cf3eb57a32ee7e83692fedb545e3
-  specs:
-    rom-factory (0.10.2)
-      dry-configurable (~> 0.7)
-      dry-core (~> 0.4)
-      faker (>= 1.7, < 3.0)
-      rom-core (~> 5.0)
-
-GIT
-  remote: https://github.com/rom-rb/rom-sql
-  revision: f3ef5817462c4915f37d0523ea2a2ba95c36a9de
-  specs:
-    rom-sql (3.2.0)
-      dry-core (~> 0.4)
-      dry-equalizer (~> 0.2)
-      dry-types (~> 1.0)
-      rom-core (~> 5.2, >= 5.2.1)
-      sequel (>= 4.49)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -177,7 +143,6 @@ GEM
       dry-equalizer (~> 0.2)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-struct (~> 1.0)
-    dry-transformer (0.1.1)
     dry-types (1.4.0)
       concurrent-ruby (~> 1.0)
       dry-container (~> 0.3)
@@ -290,7 +255,15 @@ GEM
       ffi (~> 1.0)
     regexp_parser (1.7.0)
     rexml (3.2.4)
-    rom-core (5.2.2)
+    rom (5.2.4)
+      rom-changeset (~> 5.2, >= 5.2.3)
+      rom-core (~> 5.2, >= 5.2.3)
+      rom-repository (~> 5.2, >= 5.2.2)
+    rom-changeset (5.2.3)
+      dry-core (~> 0.4)
+      rom-core (~> 5.2)
+      transproc (~> 1.0, >= 1.1.0)
+    rom-core (5.2.3)
       concurrent-ruby (~> 1.1)
       dry-container (~> 0.7)
       dry-core (~> 0.4)
@@ -300,10 +273,21 @@ GEM
       dry-struct (~> 1.0)
       dry-types (~> 1.0)
       transproc (~> 1.0, >= 1.1.0)
+    rom-factory (0.10.2)
+      dry-configurable (~> 0.7)
+      dry-core (~> 0.4)
+      faker (>= 1.7, < 3.0)
+      rom-core (~> 5.0)
     rom-repository (5.2.2)
       dry-core (~> 0.4)
       dry-initializer (~> 3.0, >= 3.0.1)
       rom-core (~> 5.2, >= 5.2.2)
+    rom-sql (3.2.0)
+      dry-core (~> 0.4)
+      dry-equalizer (~> 0.2)
+      dry-types (~> 1.0)
+      rom-core (~> 5.2, >= 5.2.1)
+      sequel (>= 4.49)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -329,7 +313,7 @@ GEM
       rubocop (>= 0.71.0)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
-    sequel (4.49.0)
+    sequel (5.32.0)
     sequel_pg (1.13.0)
       pg (>= 0.18.0, != 1.2.0)
       sequel (>= 4.38.0)
@@ -385,12 +369,12 @@ DEPENDENCIES
   puffing-billy (~> 2.2)
   puma (~> 4.0)
   rake (~> 13.0)
-  rom!
-  rom-factory!
-  rom-sql!
+  rom (~> 5.2)
+  rom-factory (~> 0.10)
+  rom-sql (~> 3.2)
   rspec (~> 3.9)
-  sequel (= 4.49)
-  sequel_pg (~> 1.7)
+  sequel (~> 5.32)
+  sequel_pg (~> 1.13)
   simplecov (~> 0.17)
   slim (~> 4.0)
   standard
