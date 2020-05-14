@@ -34,7 +34,7 @@ module AppPrototype
     private
 
     def render(req, res, view = renderable_view, **args)
-      res.body = view.call(context: view_context.with(view_context_options(req, res)), **args)
+      res.body = view.call(context: view_context.with(**view_context_options(req, res)), **args)
       res
     end
 
