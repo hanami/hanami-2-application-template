@@ -7,6 +7,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 ruby "2.7.1"
 
 # Application framework
+gem "down"
 gem "hanami", github: "hanami/hanami", branch: "unstable"
 gem "hanami-controller", github: "hanami/controller", branch: "unstable"
 gem "hanami-router", github: "hanami/router", branch: "unstable"
