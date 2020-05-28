@@ -5,6 +5,9 @@ require "app_prototype/types"
 Hanami.application.settings do
   Types = AppPrototype::Types
 
+  # Framework
+  setting :log_to_stdout, Types::Params::Bool.optional.default(false)
+
   # Database
   setting :database_url, Types::String
 
