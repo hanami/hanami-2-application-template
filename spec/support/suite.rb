@@ -23,11 +23,20 @@ module Test
 
     SUITE_PATH = "spec/suite"
 
-    attr_reader :application, :root
+    attr_reader :root
 
     def initialize(application: nil, root: nil)
-      @application = application || Hanami.application
-      @root = root ? Pathname(root) : Pathname(@application.root).join(SUITE_PATH).freeze
+      @application = application
+      @root = root ? Pathname(root) : Pathname(Dir.pwd).join(SUITE_PATH).freeze
+    end
+
+    def application
+      @application ||= init_application
+    end
+
+    def init_application
+      require_relative "../../config/application"
+      @application = Hanami.init
     end
 
     def start_coverage
