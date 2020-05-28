@@ -13,7 +13,7 @@ gem "hanami-controller", github: "hanami/controller", branch: "unstable"
 gem "hanami-router", github: "hanami/router", branch: "unstable"
 gem "hanami-utils", github: "hanami/utils", branch: "unstable"
 gem "hanami-view", github: "hanami/view", branch: "master"
-gem "puma", "~> 4.0"
+gem "puma", "~> 4.3"
 gem "rake", "~> 13.0"
 
 # Database

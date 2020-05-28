@@ -245,7 +245,7 @@ GEM
       eventmachine_httpserver
       http_parser.rb (~> 0.6.0)
       multi_json
-    puma (4.3.3)
+    puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
@@ -370,7 +370,7 @@ DEPENDENCIES
   pg (~> 1.2)
   pry-byebug (~> 3.7)
   puffing-billy (~> 2.2)
-  puma (~> 4.0)
+  puma (~> 4.3)
   rake (~> 13.0)
   rom (~> 5.2)
   rom-factory (~> 0.10)
