@@ -8,5 +8,8 @@ use Rack::Static,
     ["/assets", {"Cache-Control" => "public, max-age=31536000"}]
   ]
 
+require "rack/method_override"
+use Rack::MethodOverride
+
 require "hanami/boot"
 run Hanami.app
