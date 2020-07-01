@@ -26,7 +26,8 @@ class Installer
         "app_prototype" => snake_name,
         "App Prototype" => title_name
       }.each do |proto_name, new_name|
-        shell "find . -type f -print | xargs #{sed_i} 's/#{proto_name}/#{new_name}/g'"
+        # LC_ALL=C is required to avoid "RE error: illegal byte sequence" errors on macOS
+        shell "find . -type f -print | xargs #{sed_i} 's/#{proto_name}/#{new_name}/g'", "LC_ALL" => "C"
       end
 
       %w[d f].each do |find_type|
@@ -54,11 +55,11 @@ class Installer
       result.gsub(/\b('?[a-z])/) { Regexp.last_match(1).capitalize }
     end
 
-    def shell(command)
-      `#{command}`.tap do |output|
-        unless $?.success?
-          raise "#{command} failed with status #{$?.exitstatus}\n\n#{output}"
-        end
+    def shell(command, env={})
+      result = system(env, command)
+
+      unless result
+        raise "#{command} failed with status #{$?.exitstatus}\n\n#{output}"
       end
     end
 
