@@ -9,7 +9,7 @@ module Main
         include Deps[view: "views.home.show"]
 
         def handle(req, res)
-          render req, res
+          res.render view
         end
       end
     end
