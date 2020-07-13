@@ -1,15 +1,16 @@
 GIT
   remote: https://github.com/hanami/controller
-  revision: fe4c3392282e535096e73a71bdb4d44cca05cc12
+  revision: 7b3c72a61da2485d8693ea064768b8ba9b57f709
   branch: unstable
   specs:
     hanami-controller (2.0.0.alpha1)
+      dry-configurable (~> 0.11, >= 0.11.6)
       hanami-utils (~> 2.0.alpha)
       rack (~> 2.0)
 
 GIT
   remote: https://github.com/hanami/hanami
-  revision: 736894794fb90848140b79e799a3e32fbdcc7a34
+  revision: 77cf6cff1c9bc98ae5771b22a5af3eeb105f1148
   branch: unstable
   specs:
     hanami (2.0.0.alpha1)
@@ -36,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/hanami/utils
-  revision: 9de4ddcce3773066167912ce0b0cf4217d8017ed
+  revision: d1a485a35a7afcee01dee28d77c0474c6ff15efe
   branch: unstable
   specs:
     hanami-utils (2.0.0.alpha1)
@@ -45,7 +46,7 @@ GIT
 
 GIT
   remote: https://github.com/hanami/view
-  revision: 520cf4da6aa38c4bcc9fc543dfc8b6693105c220
+  revision: 1b18bfe2fb59879d9117720892d2f55db9f1c584
   branch: master
   specs:
     hanami-view (2.0.0.alpha1)
@@ -92,7 +93,7 @@ GEM
       addressable (~> 2.5)
     dry-auto_inject (0.7.0)
       dry-container (>= 0.3.4)
-    dry-configurable (0.11.5)
+    dry-configurable (0.11.6)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
       dry-equalizer (~> 0.2)
