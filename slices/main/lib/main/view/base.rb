@@ -5,7 +5,7 @@ require_relative "parts"
 
 module Main
   module View
-    class Base < Hanami::View[:main]
+    class Base < Hanami::View
       # This will eventually be automatic via Hanami 2 view integration
       config.inflector = Hanami.application[:inflector]
 
