@@ -353,7 +353,7 @@ DEPENDENCIES
   cuprite (~> 0.8)
   database_cleaner (~> 1.7)
   dotenv (~> 2.7)
-  down
+  down (~> 5.1)
   dry-matcher (~> 0.8)
   dry-monads (~> 1.2)
   dry-struct (~> 1.0)
