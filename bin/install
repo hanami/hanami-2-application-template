@@ -41,8 +41,8 @@ class Installer
     end
 
     def self_destruct
+      shell "rm -f .github/FUNDING.yml"
       shell "rm bin/install"
-      shell "rm .github/FUNDING.yml"
     end
 
     def camelize(string)
