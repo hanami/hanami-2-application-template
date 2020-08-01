@@ -7,7 +7,6 @@ module AppPrototype
     class Context < Hanami::View::Context
       include Deps[
         "assets",
-        "inflector",
         "settings"
       ]
 
@@ -38,20 +37,6 @@ module AppPrototype
 
       def csrf_token
         request.session[Hanami::Action::CSRFProtection::CSRF_TOKEN]
-      end
-
-      def flash
-        response.flash
-      end
-
-      private
-
-      def request
-        _options.fetch(:request)
-      end
-
-      def response
-        _options.fetch(:response)
       end
     end
   end
