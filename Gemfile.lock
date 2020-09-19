@@ -371,6 +371,7 @@ DEPENDENCIES
   hanami-view!
   i18n (~> 1.8)
   pg (~> 1.2)
+  pry (~> 0.13.1)
   pry-byebug (~> 3.7)
   puffing-billy (~> 2.2)
   puma (~> 4.0)

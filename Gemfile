@@ -41,6 +41,7 @@ group :development, :test do
   gem "guard-rack", "~> 2.2"
   gem "pry-byebug", "~> 3.7"
   gem "standard"
+  gem "pry", "~> 0.13.1"
 end
 
 # Test
