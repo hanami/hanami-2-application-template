@@ -27,7 +27,7 @@ class Installer
         "App Prototype" => title_name
       }.each do |proto_name, new_name|
         # LC_ALL=C is required to avoid "RE error: illegal byte sequence" errors on macOS
-        shell "find . -type f -print | xargs #{sed_i} 's/#{proto_name}/#{new_name}/g'", "LC_ALL" => "C"
+        shell "find . -type f -print | grep --invert-match .git | xargs #{sed_i} 's/#{proto_name}/#{new_name}/g'", "LC_ALL" => "C"
       end
 
       %w[d f].each do |find_type|
