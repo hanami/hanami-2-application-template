@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/hanami/controller
-  revision: a2ead8e5eee905bb584d90d9ef7726d7a5d7d019
+  revision: de4a010aa43e83a7366ae6a30f9270a4b551a149
   branch: unstable
   specs:
     hanami-controller (2.0.0.alpha1)
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/hanami/hanami
-  revision: 86f499631086e7ad69fe5eb6a52b5c114f761242
+  revision: d929b4896a418c74bfa009fd55f846865f2723b6
   branch: unstable
   specs:
     hanami (2.0.0.alpha1)
@@ -18,7 +18,7 @@ GIT
       dry-core (~> 0.4)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-monitor
-      dry-system (~> 0.10)
+      dry-system (~> 0.18, >= 0.18.0)
       hanami-cli (~> 1.0.alpha)
       hanami-controller (~> 2.0.alpha)
       hanami-router (~> 2.0.alpha)
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/hanami/router
-  revision: 3d469cdac3559b65c40b08ace882ac3e407c5b81
+  revision: 75c8fbd335a68d494a7b82c0a3ef3b427687c725
   branch: unstable
   specs:
     hanami-router (2.0.0.alpha3)
@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/hanami/utils
-  revision: d1a485a35a7afcee01dee28d77c0474c6ff15efe
+  revision: 5904fc9a70683b8749aa2861257d0c8c01eae4aa
   branch: unstable
   specs:
     hanami-utils (2.0.0.alpha1)
@@ -80,7 +80,7 @@ GEM
       launchy
     cliver (0.3.2)
     coderay (1.1.3)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     cookiejar (0.3.3)
     cuprite (0.11)
       capybara (>= 2.1, < 4)
@@ -89,7 +89,7 @@ GEM
     diff-lcs (1.4.4)
     docile (1.3.2)
     dotenv (2.7.6)
-    down (5.1.1)
+    down (5.2.0)
       addressable (~> 2.5)
     dry-auto_inject (0.7.0)
       dry-container (>= 0.3.4)
@@ -108,8 +108,8 @@ GEM
       dry-core (~> 0.4)
       dry-equalizer (~> 0.2)
     dry-inflector (0.2.0)
-    dry-initializer (3.0.3)
-    dry-logic (1.0.6)
+    dry-initializer (3.0.4)
+    dry-logic (1.0.8)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
@@ -124,7 +124,7 @@ GEM
       dry-core (~> 0.4)
       dry-equalizer (~> 0.2)
       dry-events (~> 0.2)
-    dry-schema (1.5.2)
+    dry-schema (1.5.4)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.8, >= 0.8.3)
       dry-core (~> 0.4)
@@ -137,7 +137,7 @@ GEM
       dry-equalizer (~> 0.3)
       dry-types (~> 1.3)
       ice_nine (~> 0.11)
-    dry-system (0.17.0)
+    dry-system (0.18.1)
       concurrent-ruby (~> 1.0)
       dry-auto_inject (>= 0.4.0)
       dry-configurable (~> 0.11, >= 0.11.1)
@@ -153,14 +153,14 @@ GEM
       dry-equalizer (~> 0.3)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
-    dry-validation (1.5.3)
+    dry-validation (1.5.6)
       concurrent-ruby (~> 1.0)
       dry-container (~> 0.7, >= 0.7.1)
       dry-core (~> 0.4)
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
-      dry-schema (~> 1.5)
-    em-http-request (1.1.6)
+      dry-schema (~> 1.5, >= 1.5.2)
+    em-http-request (1.1.7)
       addressable (>= 2.3.4)
       cookiejar (!= 0.3.1)
       em-socksify (>= 0.3)
@@ -174,7 +174,7 @@ GEM
       temple
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    faker (2.13.0)
+    faker (2.14.0)
       i18n (>= 1.6, < 2)
     ferrum (0.9)
       addressable (~> 2.5)
@@ -209,7 +209,7 @@ GEM
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    lumberjack (1.2.7)
+    lumberjack (1.2.8)
     method_source (1.0.0)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -220,21 +220,21 @@ GEM
       hansi (~> 0.2.0)
       mustermann (= 1.1.1)
     nenv (0.3.0)
-    nio4r (2.5.2)
+    nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
     parallel (1.19.2)
-    parser (2.7.1.4)
+    parser (2.7.1.5)
       ast (~> 2.4.1)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (4.0.5)
-    puffing-billy (2.3.1)
+    public_suffix (4.0.6)
+    puffing-billy (2.4.0)
       addressable (~> 2.5)
       em-http-request (~> 1.1, >= 1.1.0)
       em-synchrony
@@ -242,7 +242,7 @@ GEM
       eventmachine_httpserver
       http_parser.rb (~> 0.6.0)
       multi_json
-    puma (4.3.5)
+    puma (4.3.6)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -252,7 +252,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (1.7.1)
+    regexp_parser (1.8.1)
     rexml (3.2.4)
     rom (5.2.4)
       rom-changeset (~> 5.2, >= 5.2.3)
@@ -291,7 +291,7 @@ GEM
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.2)
+    rspec-core (3.9.3)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -300,38 +300,39 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
-    rubocop (0.85.1)
+    rubocop (0.92.0)
       parallel (~> 1.10)
-      parser (>= 2.7.0.1)
+      parser (>= 2.7.1.5)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.7)
       rexml
-      rubocop-ast (>= 0.0.3)
+      rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.2.0)
-      parser (>= 2.7.0.1)
-    rubocop-performance (1.6.1)
-      rubocop (>= 0.71.0)
+    rubocop-ast (0.7.1)
+      parser (>= 2.7.1.5)
+    rubocop-performance (1.8.1)
+      rubocop (>= 0.87.0)
+      rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
-    sequel (5.34.0)
-    sequel_pg (1.13.0)
+    sequel (5.37.0)
+    sequel_pg (1.14.0)
       pg (>= 0.18.0, != 1.2.0)
       sequel (>= 4.38.0)
     shellany (0.0.1)
-    simplecov (0.18.5)
+    simplecov (0.19.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
-    simplecov-html (0.12.2)
+    simplecov-html (0.12.3)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
     spoon (0.0.6)
       ffi
-    standard (0.4.7)
-      rubocop (~> 0.85.0)
-      rubocop-performance (~> 1.6.0)
+    standard (0.7)
+      rubocop (= 0.92)
+      rubocop-performance (= 1.8.1)
     temple (0.8.2)
     thor (1.0.1)
     tilt (2.0.10)
