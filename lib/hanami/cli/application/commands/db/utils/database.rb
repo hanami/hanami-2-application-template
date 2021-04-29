@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require_relative "database_config"
+
 module Hanami
+<<<<<<< HEAD:lib/hanami/cli/application/commands/db/utils/database.rb
   class CLI
     module Application
       module Commands
@@ -15,55 +18,102 @@ module Hanami
                   root_path: application.root,
                 )
               end
+=======
+  module CLI
+    module Commands
+      module DB
+        module Utils
+          class Database
+            attr_reader :application, :config
+>>>>>>> 5c0acc5 ([wip] add pry-buybug):lib/hanami/cli/commands/db/utils/database.rb
 
-              attr_reader :config
-              attr_reader :root_path
+            SCHEME_MAP = {
+              "sqlite" => -> {
+                require_relative("sqlite")
+                Sqlite
+              },
+              "postgres" => -> {
+                require_relative("postgres")
+                Postgres
+              },
+              "mysql" => -> {
+                require_relative("mysql")
+                Mysql
+              }
+            }.freeze
 
-              def initialize(config:, root_path:)
-                @config = config
-                @root_path = root_path
+            def self.[](application)
+              config = DatabaseConfig.new(application.settings.database_url)
+
+              resolver = SCHEME_MAP.fetch(config.db_type) do
+                raise "#{config.db_type} is not a supported db scheme"
               end
 
-              def url
-                gateway.connection.url
-              end
+              klass = resolver.()
 
-              def name
-                url.split("/").last
-              end
+              klass.new(application: application, config: config)
+            end
 
-              def applied_migrations
-                sequel_migrator.applied_migrations
-              end
+            def initialize(application:, config:)
+              @application = application
+              @config = config
+            end
 
-              def gateway
-                config.gateways[:default]
-              end
+            def root_path
+              application.root
+            end
 
-              def connection
-                gateway.connection
-              end
+            def rom_config
+              @rom_config ||=
+                begin
+                  application.init_bootable(:persistence)
+                  application.container["persistence.config"]
+                end
+            end
 
-              def migrator
-                @migrator ||= ROM::SQL::Migration::Migrator.new(
-                  connection,
-                  path: File.join(root_path, "db/migrate"),
-                )
-              end
+            def name
+              config.db_name
+            end
 
-              def applied_migrations
-                sequel_migrator.applied_migrations
-              end
+            def applied_migrations
+              sequel_migrator.applied_migrations
+            end
 
-              private
+            def gateway
+              rom_config.gateways[:default]
+            end
 
-              def sequel_migrator
-                Sequel::TimestampMigrator.new(migrator.connection, migrations_path, {})
-              end
+            def connection
+              gateway.connection
+            end
 
-              def migrations_path
-                File.join(root_path, "db/migrate")
+            def run_migrations(**options)
+              require "rom/sql"
+              ROM::SQL.with_gateway(gateway) do
+                migrator.run(options)
               end
+            end
+
+            def migrator
+              @migrator ||=
+                begin
+                  require "rom/sql"
+                  ROM::SQL::Migration::Migrator.new(connection, path: File.join(root_path, "db/migrate"))
+                end
+            end
+
+            def applied_migrations
+              sequel_migrator.applied_migrations
+            end
+
+            private
+
+            def sequel_migrator
+              Sequel::TimestampMigrator.new(migrator.connection, migrations_path, {})
+            end
+
+            def migrations_path
+              File.join(root_path, "db/migrate")
             end
           end
         end
