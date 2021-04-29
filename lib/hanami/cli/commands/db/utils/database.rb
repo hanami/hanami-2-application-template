@@ -4,7 +4,11 @@ require_relative "database_config"
 
 module Hanami
 <<<<<<< HEAD:lib/hanami/cli/application/commands/db/utils/database.rb
+<<<<<<< HEAD:lib/hanami/cli/application/commands/db/utils/database.rb
   class CLI
+=======
+  module CLI
+>>>>>>> bae390b ([wip] start updating CLI):lib/hanami/cli/commands/db/utils/database.rb
     module Application
       module Commands
         module DB
