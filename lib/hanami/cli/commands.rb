@@ -2,6 +2,8 @@ require "hanami/cli"
 
 module Hanami
   module CLI
+    require_relative "commands/console"
+
     require_relative "commands/db/create"
     require_relative "commands/db/create_migration"
     require_relative "commands/db/drop"
@@ -13,6 +15,8 @@ module Hanami
     require_relative "commands/db/seed"
     require_relative "commands/db/structure/dump"
     require_relative "commands/db/version"
+
+    register "console", Commands::Console
 
     register "db create", Commands::DB::Create
     register "db create_migration", Commands::DB::CreateMigration
