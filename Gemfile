@@ -7,8 +7,10 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 ruby "2.7.2"
 
 # Application framework
+gem "dry-files", github: "dry-rb/dry-files", branch: "master"
 gem "down", "~> 5.1"
-gem "hanami", github: "hanami/hanami", branch: "unstable"
+gem "hanami", github: "hanami/hanami", branch: "feature/hanami-2-cli"
+gem "hanami-cli", github: "hanami/cli", branch: "main"
 gem "hanami-controller", github: "hanami/controller", branch: "unstable"
 gem "hanami-router", github: "hanami/router", branch: "unstable"
 gem "hanami-utils", github: "hanami/utils", branch: "unstable"
@@ -22,7 +24,7 @@ gem "rom", "~> 5.2"
 gem "rom-factory", "~> 0.10"
 gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
-gem "sequel_pg", "~> 1.13"
+gem "pg"
 
 # Application
 gem "dry-matcher", "~> 0.8"
@@ -36,8 +38,8 @@ gem "slim", "~> 4.0"
 
 # Development/test
 group :development, :test do
+  gem "pry-byebug"
   gem "break", "~> 0.21"
-  gem "bundler-audit", "~> 0.6"
   gem "dotenv", "~> 2.7"
   gem "guard-rack", "~> 2.2"
   gem "pry"
