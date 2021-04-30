@@ -76,7 +76,7 @@ module Hanami
     #       end
     #     end
     #   end
-    module CSRFProtection
+    module CsrfProtection
       # Session and params key for CSRF token.
       #
       # This key is shared with <tt>hanami-controller</tt> and <tt>hanami-helpers</tt>
