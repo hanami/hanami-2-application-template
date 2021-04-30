@@ -3,33 +3,12 @@
 require_relative "database_config"
 
 module Hanami
-<<<<<<< HEAD:lib/hanami/cli/application/commands/db/utils/database.rb
-<<<<<<< HEAD:lib/hanami/cli/application/commands/db/utils/database.rb
-  class CLI
-=======
-  module CLI
->>>>>>> bae390b ([wip] start updating CLI):lib/hanami/cli/commands/db/utils/database.rb
-    module Application
-      module Commands
-        module DB
-          module Utils
-            class Database
-              def self.for_application(application)
-                application.init_bootable :persistence
-
-                new(
-                  config: application["persistence.config"],
-                  root_path: application.root,
-                )
-              end
-=======
   module CLI
     module Commands
       module DB
         module Utils
           class Database
             attr_reader :application, :config
->>>>>>> 5c0acc5 ([wip] add pry-buybug):lib/hanami/cli/commands/db/utils/database.rb
 
             SCHEME_MAP = {
               "sqlite" => -> {

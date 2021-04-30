@@ -1,21 +1,13 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
 require_relative "../../application_command"
-=======
-require "hanami/cli/command"
->>>>>>> bae390b ([wip] start updating CLI)
 require_relative "structure/dump"
 
 module Hanami
   module CLI
     module Commands
       module DB
-<<<<<<< HEAD
         class SampleData < ApplicationCommand
-=======
-        class SampleData < Command
->>>>>>> bae390b ([wip] start updating CLI)
           desc "Load sample data"
 
           def call(**)

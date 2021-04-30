@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
 require_relative "../../application_command"
-=======
-require "hanami/cli/command"
->>>>>>> bae390b ([wip] start updating CLI)
 require_relative "structure/dump"
 require_relative "utils/database"
 
@@ -12,11 +8,7 @@ module Hanami
   module CLI
     module Commands
       module DB
-<<<<<<< HEAD
         class Rollback < ApplicationCommand
-=======
-        class Rollback < Command
->>>>>>> bae390b ([wip] start updating CLI)
           desc "Rollback database to a previous migration"
 
           option :target, desc: "Target migration number", aliases: ["-t"]
@@ -33,13 +25,6 @@ module Hanami
 
           private
 
-<<<<<<< HEAD
-=======
-          def database
-            @database ||= Utils::Database.for_application(application)
-          end
-
->>>>>>> bae390b ([wip] start updating CLI)
           def find_migration(code)
             migration = database.applied_migrations.yield_self { |migrations|
               if code
