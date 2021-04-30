@@ -24,7 +24,6 @@ gem "rom", "~> 5.2"
 gem "rom-factory", "~> 0.10"
 gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
-gem "pg"
 
 # Application
 gem "dry-matcher", "~> 0.8"
