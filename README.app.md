@@ -1,10 +1,24 @@
 # AppPrototype
 
-This is an Hanami 2 application.
+This is a Hanami 2 application.
+
+## Docker development
+
+To bootstrap and setup the app and its assets server, just run:
+
+```
+script/setup docker
+```
+
+To start the app:
+
+```
+docker compose up app
+```
 
 ## Local development
 
-## Requirements
+### Requirements
 
 The scripts below require [Homebrew][brew] and [asdf][asdf] installed, and
 [asdf added to your shell][asdf-shell].
@@ -16,7 +30,7 @@ the `script/` files (mentioned below) to use your preferred tools.
 [asdf]: https://asdf-vm.com
 [asdf-shell]: https://asdf-vm.com/#/core-manage-asdf-vm?id=add-to-your-shell
 
-### Installation
+### Local setup
 
 After cloning, run:
 
@@ -24,7 +38,7 @@ After cloning, run:
 ./script/bootstrap
 ```
 
-### Running supporting services
+#### Running supporting services
 
 To start the supporting services, run:
 
@@ -34,7 +48,7 @@ To start the supporting services, run:
 
 These must be running before completing the following steps.
 
-### Setup
+#### Setup
 
 After the supporting services have started, run:
 
@@ -50,7 +64,7 @@ After pulling changes from the remote, run:
 ./script/update
 ```
 
-### Running the app
+#### Running the app
 
 To run the app:
 
