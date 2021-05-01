@@ -1,3 +1,5 @@
 #!/bin/sh
 
+bundle check || bundle
+
 bundle exec puma -C config/puma.rb
