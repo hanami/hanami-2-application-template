@@ -4,8 +4,6 @@ source "https://rubygems.org/"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-ruby "2.7.2"
-
 # Application framework
 gem "dry-files", github: "dry-rb/dry-files", branch: "master"
 gem "down", "~> 5.1"
@@ -19,7 +17,7 @@ gem "puma", "~> 4.0"
 gem "rake", "~> 13.0"
 
 # Database
-gem "pg", "~> 1.2"
+gem "sqlite3"
 gem "rom", "~> 5.2"
 gem "rom-factory", "~> 0.10"
 gem "rom-sql", "~> 3.2"
