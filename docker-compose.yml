@@ -9,7 +9,23 @@ services:
       - .:/app
       - bundle_path:/usr/local/bundle
     command: script/server
+    env_file: ".env"
     ports:
       - 3000:3000
+    depends_on:
+      - assets
+    links:
+      - assets
+  assets:
+    image: node:alpine
+    env_file: ".env"
+    working_dir: /app
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    expose:
+      - "8080"
+    command: "npm start"
 volumes:
   bundle_path:
+  node_modules:
