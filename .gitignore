@@ -3,6 +3,14 @@
 *.lock
 package-lock.json
 
+tmp/
+
+# Logs
+log/
+
+# DB stuff
+db/*.sqlite
+
 # Application processes
 /.overmind*
 
