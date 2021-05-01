@@ -5,23 +5,21 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
+if [ "$1" == "docker" ]; then
+  script/bootstrap docker
+  docker compose up
+else
+  cd "$(dirname "$0")/.."
 
-script/bootstrap
+  script/bootstrap
 
-echo "==> Copying config files"
-if [ -f ".env-example" ] && [ ! -f ".env" ]; then
-  cp .env-example .env
+  echo "==> Copying config files"
+  if [ ! -f ".env" ]; then
+    cp .env-example .env
+  fi
+
+  echo "==> Setting up database..."
+  bin/run db setup
+
+  echo "==> App is now ready to go!"
 fi
-if [ -f ".env.test-example" ] && [ ! -f ".env.test" ]; then
-  cp .env.test-example .env.test
-fi
-
-echo "==> Setting up database…"
-bin/run db create
-bin/run db create -e test
-bin/run db reset
-bin/run db reset -e test
-bin/run db seed
-
-echo "==> App is now ready to go!"
