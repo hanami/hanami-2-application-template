@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "author": "Your name here",
   "repository": {},
-  "dependencies": {},
   "devDependencies": {
     "application-assets": "file:.assets"
   },
