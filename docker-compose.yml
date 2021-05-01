@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - bundle_path:/usr/local/bundle
+    command: script/server
+    ports:
+      - 3000:3000
+volumes:
+  bundle_path:
