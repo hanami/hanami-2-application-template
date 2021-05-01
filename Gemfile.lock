@@ -29,11 +29,11 @@ GIT
 
 GIT
   remote: https://github.com/hanami/hanami
-  revision: a62803f36c898281651eee60ac863509e938a371
-  branch: feature/hanami-2-cli
+  revision: fb18b6f0466377da5c07448820099dd16f8f1784
+  branch: unstable
   specs:
     hanami (2.0.0.alpha1)
-      bundler (~> 2.1)
+      bundler (>= 1.16, < 3)
       dry-cli (~> 0.6)
       dry-core (~> 0.4)
       dry-inflector (~> 0.1, >= 0.1.2)

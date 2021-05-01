@@ -9,7 +9,7 @@ ruby "2.7.2"
 # Application framework
 gem "dry-files", github: "dry-rb/dry-files", branch: "master"
 gem "down", "~> 5.1"
-gem "hanami", github: "hanami/hanami", branch: "feature/hanami-2-cli"
+gem "hanami", github: "hanami/hanami", branch: "unstable"
 gem "hanami-cli", github: "hanami/cli", branch: "main"
 gem "hanami-controller", github: "hanami/controller", branch: "unstable"
 gem "hanami-router", github: "hanami/router", branch: "unstable"
