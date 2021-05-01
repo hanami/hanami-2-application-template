@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "main/action"
-
 module Main
   module Actions
     module Home
