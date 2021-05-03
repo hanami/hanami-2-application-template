@@ -13,7 +13,7 @@ script/setup docker
 To start the app:
 
 ```
-docker compose up app
+docker-compose up app
 ```
 
 ## Local development
