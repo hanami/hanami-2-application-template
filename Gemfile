@@ -2,16 +2,17 @@
 
 source "https://rubygems.org/"
 
-# Application framework
-gem "down", "~> 5.1"
-gem "hanami", github: "hanami/hanami", branch: "unstable"
-gem "hanami-cli", github: "hanami/cli", branch: "main"
-gem "hanami-controller", github: "hanami/controller", branch: "unstable"
-gem "hanami-router", github: "hanami/router", branch: "unstable"
-gem "hanami-utils", github: "hanami/utils", branch: "unstable"
-gem "hanami-view", github: "hanami/view", branch: "master"
-gem "puma", "~> 4.0"
+# Core gems
 gem "rake", "~> 13.0"
+
+# Application framework
+%w[hanami hanami-cli hanami-controller hanami-router hanami-utils hanami-view].each do |name|
+  gem name, "~> 2.0.0.alpha"
+end
+
+# HTTP
+gem "puma", "~> 4.0"
+gem "down", "~> 5.1"
 
 # Database
 gem "sqlite3"
