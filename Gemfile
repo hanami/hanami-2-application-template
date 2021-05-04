@@ -2,8 +2,6 @@
 
 source "https://rubygems.org/"
 
-git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
-
 # Application framework
 gem "down", "~> 5.1"
 gem "hanami", github: "hanami/hanami", branch: "unstable"
