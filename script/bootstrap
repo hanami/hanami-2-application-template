@@ -8,8 +8,8 @@ set -e
 cd "$(dirname "$0")/.."
 
 if [ "$1" == "docker" ]; then
-  docker compose run --rm app "bundle"
-  docker compose run --rm --entrypoint "/bin/sh -lc" assets "npm install"
+  docker-compose run --rm app "bundle"
+  docker-compose run --rm --entrypoint "/bin/sh -lc" assets "npm install"
 else
   if [ -f "Brewfile" ] && [ "$(uname -s)" = "Darwin" ]; then
     brew bundle check >/dev/null 2>&1  || {
