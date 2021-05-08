@@ -1,13 +1,13 @@
 # auto_register: false
 # frozen_string_literal: true
 
-require "transproc"
+require "dry/transformer"
 
 module AppPrototype
   module Functions
-    extend Transproc::Registry
+    extend Dry::Transformer::Registry
 
-    import Transproc::HashTransformations
-    import Transproc::ArrayTransformations
+    import Dry::Transformer::ArrayTransformations
+    import Dry::Transformer::HashTransformations
   end
 end
