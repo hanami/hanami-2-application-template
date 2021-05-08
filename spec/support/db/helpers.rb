@@ -34,10 +34,8 @@ module Test
           begin
             case type
             when :main
-              require "main/entities"
               Main::Entities
             else
-              require "app_prototype/entities"
               AppPrototype::Entities
             end
           end
