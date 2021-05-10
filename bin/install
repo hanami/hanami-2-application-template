@@ -6,6 +6,7 @@ class Installer
     def call(app_name)
       rename_app app_name
       install_readme
+      generate_cli_binstub
       self_destruct
 
       puts "Your app is ready to go!"
@@ -34,6 +35,10 @@ class Installer
         shell "find . -depth -type #{find_type} -name '*app_prototype*' " \
               "-exec bash -c 'mv $0 ${0/app_prototype/#{snake_name}}' {} \\;"
       end
+    end
+
+    def generate_cli_binstub
+      shell "bundle binstubs hanami-cli"
     end
 
     def install_readme
