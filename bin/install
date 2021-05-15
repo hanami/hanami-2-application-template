@@ -6,6 +6,7 @@ class Installer
     def call(app_name)
       rename_app app_name
       install_readme
+      bundle_install
       generate_cli_binstub
       self_destruct
 
@@ -35,6 +36,10 @@ class Installer
         shell "find . -depth -type #{find_type} -name '*app_prototype*' " \
               "-exec bash -c 'mv $0 ${0/app_prototype/#{snake_name}}' {} \\;"
       end
+    end
+
+    def bundle_install
+      shell "bundle install"
     end
 
     def generate_cli_binstub
