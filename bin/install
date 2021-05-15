@@ -39,6 +39,7 @@ class Installer
     end
 
     def bundle_install
+      puts "Running bundle install - this may take a few minutes"
       shell "bundle install"
     end
 
