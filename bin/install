@@ -48,6 +48,8 @@ class Installer
     def self_destruct
       shell "rm -f .github/FUNDING.yml"
       shell "rm bin/install"
+      shell "rm -f stderr.txt"
+      shell "rm -f stdout.txt"
     end
 
     def camelize(string)
@@ -61,10 +63,14 @@ class Installer
     end
 
     def shell(command, env={})
-      result = system(env, command)
+      stderr = "stderr.txt"
+      stdout = "stdout.txt"
+      result = system(env, command, {out: stdout, err: stderr })
 
       unless result
-        raise "#{command} failed with status #{$?.exitstatus}\n\n#{output}"
+        output = IO.read(stdout)
+        errput = IO.read(stderr)
+        raise "#{command} failed with status #{$?.exitstatus}\n\nSTDOUT:\n#{output}\n\nSTDERR:\n#{errput}"
       end
     end
 
