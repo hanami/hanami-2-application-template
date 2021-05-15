@@ -6,6 +6,7 @@ class Installer
     def call(app_name)
       rename_app app_name
       install_readme
+      bundle_install
       generate_cli_binstub
       self_destruct
 
@@ -37,6 +38,11 @@ class Installer
       end
     end
 
+    def bundle_install
+      puts "Running bundle install - this may take a few minutes"
+      shell "bundle install"
+    end
+
     def generate_cli_binstub
       shell "bundle binstubs hanami-cli"
     end
@@ -61,10 +67,17 @@ class Installer
     end
 
     def shell(command, env={})
-      result = system(env, command)
+      stderr = "stderr.txt"
+      stdout = "stdout.txt"
+      result = system(env, command, {out: stdout, err: stderr })
 
-      unless result
-        raise "#{command} failed with status #{$?.exitstatus}\n\n#{output}"
+      if result
+        File.unlink(stderr) if File.exist?(stderr)
+        File.unlink(stdout) if File.exist?(stdout)
+      else
+        output = IO.read(stdout)
+        errput = IO.read(stderr)
+        raise "#{command} failed with status #{$?.exitstatus}\n\nSTDOUT:\n#{output}\n\nSTDERR:\n#{errput}"
       end
     end
 
