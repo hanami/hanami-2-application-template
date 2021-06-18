@@ -9,9 +9,9 @@ cd "$(dirname "$0")/.."
 script/bootstrap
 
 echo "==> Updating db…"
-bin/run db create
+bin/hanami db create
 
-bin/run db create -e test
-bin/run db reset -e test
+bin/hanami db create -e test
+bin/hanami db reset -e test
 
-bin/run db migrate
+bin/hanami db migrate

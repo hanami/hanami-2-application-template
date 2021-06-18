@@ -19,7 +19,7 @@ else
   script/bootstrap
 
   echo "==> Setting up database..."
-  bin/run db setup
+  bin/hanami db setup
 
   echo "==> App is now ready to go!"
 fi
