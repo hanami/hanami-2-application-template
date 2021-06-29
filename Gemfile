@@ -6,7 +6,8 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-%w[hanami hanami-cli hanami-controller hanami-router hanami-utils hanami-view].each do |name|
+gem "hanami", github: "hanami/hanami", branch: :main
+%w[hanami-cli hanami-controller hanami-router hanami-utils hanami-view].each do |name|
   gem name, "~> 2.0.0.alpha"
 end
 
