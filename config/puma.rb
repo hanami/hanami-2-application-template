@@ -20,7 +20,7 @@ preload_app!
 rackup DefaultRackup
 
 # Specify the port that Puma will listen on
-port ENV.fetch("PORT") { 3000 }
+port ENV.fetch("PORT") { 2300 }
 
 # Specify the environment Puma will run in
 environment ENV.fetch("HANAMI_ENV") { "development" }
