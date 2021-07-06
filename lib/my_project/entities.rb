@@ -1,7 +1,7 @@
 # auto_register: false
 # frozen_string_literal: true
 
-module AppPrototype
+module MyProject
   module Entities
   end
 end

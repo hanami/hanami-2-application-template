@@ -36,7 +36,7 @@ module Test
             when :main
               Main::Entities
             else
-              AppPrototype::Entities
+              MyProject::Entities
             end
           end
       end

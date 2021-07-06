@@ -8,10 +8,10 @@ end
 
 require "hanami"
 
-module AppPrototype
+module MyProject
   class Application < Hanami::Application
     config.sessions = :cookie, {
-      key: "app_prototype.session",
+      key: "my_project.session",
       secret: settings.session_secret,
       expire_after: 60 * 60 * 24 * 365 # 1 year
     }

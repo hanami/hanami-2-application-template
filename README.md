@@ -15,7 +15,7 @@ Then, once you’ve cloned your new repository, run:
 ./bin/install name_of_your_app
 ```
 
-This will rename all instances of `AppPrototype` within (in all its case
+This will rename all instances of `MyProject` within (in all its case
 variations) to the name of your application.
 
 See [README.app.md](README.app.md) for details of the generated application.

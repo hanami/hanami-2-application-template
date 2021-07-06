@@ -7,7 +7,7 @@ require "hanami/action/cookies"
 require "hanami/action/csrf_protection"
 require "hanami/action/session"
 
-module AppPrototype
+module MyProject
   class Action < Hanami::Action
     def self.inherited(klass)
       super

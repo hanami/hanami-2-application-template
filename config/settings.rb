@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "app_prototype/types"
+require "my_project/types"
 require "hanami/application/settings"
 
-module AppPrototype
+module MyProject
   class Settings < Hanami::Application::Settings
     # Framework
     setting :log_to_stdout, constructor: Types::Params::Bool.optional.default(false)

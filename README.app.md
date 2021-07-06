@@ -1,4 +1,4 @@
-# AppPrototype
+# MyProject
 
 This is a Hanami 2 application.
 

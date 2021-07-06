@@ -4,7 +4,7 @@
 require "dry/monads"
 require "dry/matcher/result_matcher"
 
-module AppPrototype
+module MyProject
   class Operation
     include Dry::Monads[:result, :try]
 
