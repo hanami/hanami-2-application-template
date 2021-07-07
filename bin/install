@@ -1,100 +1,151 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
-
-class Installer
-  class << self
-    def call(app_name)
-      rename_app app_name
-      install_readme
-      bundle_install
-      generate_cli_binstub
-      self_destruct
-
-      puts "Your app is ready to go!"
-    end
-
-    private
-
-    # Borrowed from github.com/carbonfive/raygun
-    def rename_app(app_name)
-      dash_name = app_name.tr("_", "-")
-      snake_name = app_name.tr("-", "_")
-      camel_name = camelize(snake_name)
-      title_name = titleize(snake_name)
-
-      {
-        "AppPrototype"  => camel_name,
-        "app-prototype" => dash_name,
-        "app_prototype" => snake_name,
-        "App Prototype" => title_name
-      }.each do |proto_name, new_name|
-        # LC_ALL=C is required to avoid "RE error: illegal byte sequence" errors on macOS
-        shell "find . -type f -print | grep --invert-match .git | xargs #{sed_i} 's/#{proto_name}/#{new_name}/g'", "LC_ALL" => "C"
-      end
-
-      %w[d f].each do |find_type|
-        shell "find . -depth -type #{find_type} -name '*app_prototype*' " \
-              "-exec bash -c 'mv $0 ${0/app_prototype/#{snake_name}}' {} \\;"
-      end
-    end
-
-    def bundle_install
-      puts "Running bundle install - this may take a few minutes"
-      shell "bundle install"
-    end
-
-    def generate_cli_binstub
-      shell "bundle binstubs hanami-cli"
-    end
-
-    def install_readme
-      shell "mv README.app.md README.md"
-    end
-
-    def self_destruct
-      shell "rm -f .github/FUNDING.yml"
-      shell "rm bin/install"
-    end
-
-    def camelize(string)
-      result = string.sub(/^[a-z\d]*/) { $&.capitalize }
-      result.gsub(%r{(?:_|(/))([a-z\d]*)}) { "#{Regexp.last_match(1)}#{Regexp.last_match(2).capitalize}" }
-    end
-
-    def titleize(underscored_string)
-      result = underscored_string.tr("_", " ")
-      result.gsub(/\b('?[a-z])/) { Regexp.last_match(1).capitalize }
-    end
-
-    def shell(command, env={})
-      stderr = "stderr.txt"
-      stdout = "stdout.txt"
-      result = system(env, command, {out: stdout, err: stderr })
-
-      if result
-        File.unlink(stderr) if File.exist?(stderr)
-        File.unlink(stdout) if File.exist?(stdout)
-      else
-        output = IO.read(stdout)
-        errput = IO.read(stderr)
-        raise "#{command} failed with status #{$?.exitstatus}\n\nSTDOUT:\n#{output}\n\nSTDERR:\n#{errput}"
-      end
-    end
-
-    # Distinguish BSD vs GNU sed with the --version flag (only present in GNU sed).
-    def sed_i
-      @sed_i ||= begin
-        `sed --version &> /dev/null`
-        $?.success? ? "sed -i" : "sed -i ''"
-      end
-    end
-  end
-end
-
-project_name = ARGV[0]
-
-unless project_name
-  raise "Please provide a snake_cased project name, e.g.\n\n./bin/install my_app"
-end
-
-Installer.(project_name)
+diff a/bin/install b/bin/install	(rejected hunks)
+@@ -10,148 +10,148 @@ class Installer
+       generate_cli_binstub
+       self_destruct
+ 
+-      puts "Your app is ready to go!"
++      puts 'Your app is ready to go!'
+     end
+ 
+     private
+ 
+     def rename_app(app_name)
+       rename_file_contents(app_name)
+       rename_file_names(app_name)
+     end
+ 
+     def rename_file_contents(app_name)
+       dash_name = app_name.tr('_', '-')
+       snake_name = app_name.tr('-', '_')
+       camel_name = camelize(snake_name)
+       title_name = titleize(snake_name)
+       replacements = {
+         'MyProject' => camel_name,
+         'my-project' => dash_name,
+         'my_project' => snake_name,
+         'My Project' => title_name
+       }
+ 
+       find_files_for_gsub.each do |fname|
+         file_edit(fname, replacements)
+       end
+     end
+ 
+     def rename_file_names(app_name)
+       files_to_rename = find_files_for_rename
+       files_to_rename.each do |orig_name|
+         new_name = orig_name.sub('my_project', app_name)
+         FileUtils.mv(orig_name, new_name, verbose: true)
+       end
+     end
+ 
+     def find_files_for_gsub(d = Pathname(__dir__).parent)
+       files = []
+       Find.find(d) do |path|
+         if File.directory?(path)
+           if File.basename(path) == '.git'
+             Find.prune
+           else
+             next
+           end
+         else
+           next if path == File.expand_path(__FILE__)
+ 
+           if block_given?
+             yield path
+           else
+             files << path
+           end
+         end
+       end
+       return files unless block_given?
+     end
+ 
+     def find_files_for_rename(d = Pathname(__dir__).parent)
+       files_or_dirs = []
+       Find.find(d) do |path|
+         regexp = /my_project/
+         bname = File.basename(path)
+         if File.directory?(path)
+           case bname
+           when '.git'
+             Find.prune
+           when regexp
+             if block_given?
+               yield path
+             else
+               files_or_dirs << path
+             end
+           else
+             next
+           end
+         else
+           next unless bname =~ regexp
+ 
+           if block_given?
+             yield path
+           else
+             files_or_dirs << path
+           end
+         end
+       end
+       files_or_dirs unless block_given?
+     end
+ 
+     def file_edit(filename, replacements)
+       puts "changing filename #{filename}"
+       tempfile = Tempfile.new
+       File.open(filename).each do |line|
+         replacements.each do |proto_name, new_name|
+           line = line.gsub(proto_name, new_name)
+         end
+ 
+         tempfile.puts line
+       end
+       tempfile.fdatasync unless RUBY_PLATFORM =~ /mswin|mingw|windows/
+       tempfile.close
+       if RUBY_PLATFORM =~ /mswin|mingw|windows/
+       # FIXME: apply perms on windows
+       else
+         stat = File.stat(filename)
+         FileUtils.chown stat.uid, stat.gid, tempfile.path
+         FileUtils.chmod stat.mode, tempfile.path
+       end
+       FileUtils.mv tempfile.path, filename
+     end
+ 
+     def bundle_install
+       puts 'Running bundle install - this may take a few minutes'
+       shell 'bundle install'
+     end
+ 
+     def generate_cli_binstub
+       shell 'bundle binstubs hanami-cli'
+     end
+ 
+     def install_readme
+       shell 'mv README.app.md README.md'
+     end
+ 
+     def self_destruct
+       shell 'rm -f .github/FUNDING.yml'
+       shell 'rm bin/install'
+     end
+ 
+     def camelize(string)
+       result = string.sub(/^[a-z\d]*/) { Regexp.last_match(0).capitalize }
+       result.gsub(%r{(?:_|(/))([a-z\d]*)}) { "#{Regexp.last_match(1)}#{Regexp.last_match(2).capitalize}" }
+     end
+ 
+     def titleize(underscored_string)
+       result = underscored_string.tr('_', ' ')
+       result.gsub(/\b('?[a-z])/) { Regexp.last_match(1).capitalize }
+     end
+ 
+     def shell(command, env = {})
+       stderr = 'stderr.txt'
+       stdout = 'stdout.txt'
+       result = system(env, command, { out: stdout, err: stderr })
+ 
+       if result
+         File.unlink(stderr) if File.exist?(stderr)
