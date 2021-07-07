@@ -29,10 +29,10 @@ class Installer
       camel_name = camelize(snake_name)
       title_name = titleize(snake_name)
       replacements = {
-        "MyProject" => camel_name,
-        "my-project" => dash_name,
-        "my_project" => snake_name,
-        "My Project" => title_name
+        "AppPrototype" => camel_name,
+        "app-prototype" => dash_name,
+        "app_prototype" => snake_name,
+        "App Prototype" => title_name
       }
 
       find_files_for_gsub.each do |fname|
@@ -43,13 +43,13 @@ class Installer
     def rename_file_names(app_name)
       files_to_rename = find_files_for_rename
       files_to_rename.each do |orig_name|
-        new_name = orig_name.sub("my_project", app_name)
-        FileUtils.mv(orig_name, new_name, verbose: true) unless orig_name == new_name
+        new_name = orig_name.gsub("app_prototype", app_name)
+        FileUtils.mv(orig_name, new_name, verbose: true, force: true) unless orig_name == new_name
       end
     end
 
     def find_files_for_gsub(d = Pathname(__dir__).parent)
-      files = []
+      files_or_dirs = []
       Find.find(d) do |path|
         if File.directory?(path)
           if File.basename(path) == ".git"
@@ -63,17 +63,17 @@ class Installer
           if block_given?
             yield path
           else
-            files << path
+            files_or_dirs << path
           end
         end
       end
-      return files unless block_given?
+      return files_or_dirs unless block_given?
     end
 
     def find_files_for_rename(d = Pathname(__dir__).parent)
       files_or_dirs = []
       Find.find(d) do |path|
-        regexp = /my_project/
+        regexp = /app_prototype/
         bname = File.basename(path)
         if File.directory?(path)
           case bname
