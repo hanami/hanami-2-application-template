@@ -41,10 +41,14 @@ class Installer
     end
 
     def rename_file_names(app_name)
-      files_to_rename = find_files_for_rename
-      files_to_rename.each do |orig_name|
-        new_name = orig_name.gsub("app_prototype", app_name)
-        FileUtils.mv(orig_name, new_name, verbose: true, force: true) unless orig_name == new_name
+      files, dirs = find_files_for_rename.partition{ |f| File.file? f }
+      files.each do |orig_name|
+        new_name = orig_name.sub("app_prototype", app_name)
+        FileUtils.mv(orig_name, new_name, force: true, verbose: true) unless orig_name == new_name
+      end
+      dirs.reverse.each do |orig_name| 
+        new_name = orig_name.sub("app_prototype", app_name)
+        FileUtils.mv(orig_name, new_name, force: true, verbose: true) unless orig_name == new_name
       end
     end
 
@@ -71,7 +75,7 @@ class Installer
     end
 
     def find_files_for_rename(d = Pathname(__dir__).parent)
-      files_or_dirs = []
+      files_and_dirs = []
       Find.find(d) do |path|
         regexp = /app_prototype/
         bname = File.basename(path)
@@ -83,7 +87,7 @@ class Installer
             if block_given?
               yield path
             else
-              files_or_dirs << path
+              files_and_dirs << path
             end
           else
             next
@@ -94,11 +98,11 @@ class Installer
           if block_given?
             yield path
           else
-            files_or_dirs << path
+            files_and_dirs << path
           end
         end
       end
-      files_or_dirs unless block_given?
+      files_and_dirs unless block_given?
     end
 
     def file_edit(filename, replacements)
