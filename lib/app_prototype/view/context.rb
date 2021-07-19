@@ -36,7 +36,7 @@ module AppPrototype
       end
 
       def csrf_token
-        request.session[Hanami::Action::CsrfProtection::CSRF_TOKEN]
+        request.session[Hanami::Action::CSRFProtection::CSRF_TOKEN]
       end
     end
   end

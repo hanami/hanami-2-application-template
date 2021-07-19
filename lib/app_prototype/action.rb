@@ -15,7 +15,7 @@ module AppPrototype
       # These will need to be sorted by the framework eventually
       klass.include Hanami::Action::Cookies
       klass.include Hanami::Action::Session
-      klass.include Hanami::Action::CsrfProtection
+      klass.include Hanami::Action::CSRFProtection
     end
   end
 end
