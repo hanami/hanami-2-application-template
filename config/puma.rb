@@ -25,7 +25,7 @@ port ENV.fetch("PORT") { 2300 }
 # Specify the environment Puma will run in
 environment ENV.fetch("HANAMI_ENV") { "development" }
 
-# Disconnect from rom gateways before forking
+# Shutdown the application before forking
 before_fork do
-  Hanami.application["persistence.rom"].disconnect
+  Hanami.shutdown
 end
