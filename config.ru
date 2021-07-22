@@ -3,7 +3,7 @@
 require "rack/static"
 use Rack::Static,
   urls: ["/assets"],
-  root: "public",
+  root: ".assets/tmp",
   header_rules: [
     ["/assets", {"Cache-Control" => "public, max-age=31536000"}]
   ]
