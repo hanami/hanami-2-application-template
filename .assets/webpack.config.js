@@ -153,5 +153,6 @@ module.exports = function config(mode) {
         fileName: "manifest.json",
       }),
     ],
+    devtool: 'source-map'
   };
 };
