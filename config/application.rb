@@ -21,7 +21,6 @@ module AppPrototype
       stream: settings.log_to_stdout ? $stdout : "log/#{Hanami.env}.log"
     }
 
-    assets_server = settings.assets_server_url
     config.actions.default_headers['Content-Security-Policy'] = \
       "base-uri 'self'; " \
       "child-src 'self'; " \
@@ -35,7 +34,7 @@ module AppPrototype
       "media-src 'self'; " \
       "object-src 'none'; " \
       "plugin-types application/pdf; " \
-      "script-src 'self' #{assets_server}; " \
-      "style-src 'self' 'unsafe-inline' https: #{assets_server}"
+      "script-src 'self' #{settings.assets_server_url}; " \
+      "style-src 'self' 'unsafe-inline' https: #{settings.assets_server_url}"
   end
 end
