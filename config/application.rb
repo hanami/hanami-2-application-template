@@ -33,7 +33,6 @@ module AppPrototype
       "img-src 'self' https: data:; " \
       "media-src 'self'; " \
       "object-src 'none'; " \
-      "plugin-types application/pdf; " \
       "script-src 'self' #{settings.assets_server_url}; " \
       "style-src 'self' 'unsafe-inline' https: #{settings.assets_server_url}"
   end
