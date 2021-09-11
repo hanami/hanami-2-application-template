@@ -11,7 +11,7 @@ services:
     command: script/puma
     env_file: ".env"
     ports:
-      - 3000:3000
+      - 2300:2300
     depends_on:
       - assets
     links:
