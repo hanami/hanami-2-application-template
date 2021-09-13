@@ -48,7 +48,7 @@ group :test do
   gem "capybara", "~> 3.0"
   gem "capybara-screenshot", "~> 1.0"
   gem "cuprite", "~> 0.8"
-  gem "database_cleaner", "~> 1.7"
+  gem "database_cleaner-sequel", "~> 2.0"
   gem "puffing-billy", "~> 2.2"
   gem "rspec", "~> 3.9"
   gem "simplecov", "~> 0.17"
