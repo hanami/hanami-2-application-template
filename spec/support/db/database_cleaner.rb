@@ -1,21 +1,21 @@
-require "database_cleaner"
+require "database_cleaner/sequel"
 require_relative "helpers"
 
-DatabaseCleaner[:sequel, connection: Test::DB::Helpers.db].strategy = :transaction
+DatabaseCleaner[:sequel].strategy = :transaction
 
 RSpec.configure do |config|
   config.before :suite do
-    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner[:sequel].clean_with :truncation
   end
 
   config.prepend_before :each, :db do |example|
     strategy = example.metadata[:js] ? :truncation : :transaction
-    DatabaseCleaner.strategy = strategy
+    DatabaseCleaner[:sequel].strategy = strategy
 
-    DatabaseCleaner.start
+    DatabaseCleaner[:sequel].start
   end
 
   config.append_after :each, :db do
-    DatabaseCleaner.clean
+    DatabaseCleaner[:sequel].clean
   end
 end
