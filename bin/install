@@ -24,7 +24,7 @@ class Installer
       if /[A-Z]/.match(app_name)
         puts "Capital letters can lead to unexpected results."
         puts "Underscore your app name instead (i.e. #{app_name.downcase})."
-        return
+        return false
       end
       rename_file_contents(app_name)
       rename_file_names(app_name)
