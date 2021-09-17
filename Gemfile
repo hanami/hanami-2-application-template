@@ -18,7 +18,6 @@ gem "down", "~> 5.1"
 # Database
 gem "sqlite3"
 gem "rom", "~> 5.2"
-gem "rom-factory", "~> 0.10"
 gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
 
@@ -50,6 +49,7 @@ group :test do
   gem "cuprite", "~> 0.8"
   gem "database_cleaner-sequel", "~> 2.0"
   gem "puffing-billy", "~> 2.2"
+  gem "rom-factory", "~> 0.10"
   gem "rspec", "~> 3.9"
   gem "simplecov", "~> 0.17"
 end
