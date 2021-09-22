@@ -6,7 +6,7 @@ require "hanami/application/settings"
 module AppPrototype
   class Settings < Hanami::Application::Settings
     # Framework
-    setting :log_to_stdout, false, constructor: Types::Params::Bool.optional
+    setting :log_to_stdout, constructor: Types::Params::Bool, default: false
 
     # Database
     setting :database_url, constructor: Types::String
@@ -15,7 +15,7 @@ module AppPrototype
     setting :session_secret, constructor: Types::String
 
     # Assets
-    setting :precompiled_assets, false, constructor: Types::Params::Bool.optional
-    setting :assets_server_url, "http://localhost:8080", constructor: Types::String.optional
+    setting :precompiled_assets, constructor: Types::Params::Bool, default: false
+    setting :assets_server_url, constructor: Types::String, default: "http://localhost:8080"
   end
 end
