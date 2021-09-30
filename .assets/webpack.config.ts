@@ -10,7 +10,7 @@ const postcssCssVariables = require("postcss-css-variables")
 
 // Path to slices
 // We expect that asset will exist at /:slice/assets/:entry
-const slicesPath = path.join(__dirname, "slices")
+const slicesPath = path.join(__dirname, "../slices")
 
 const cssLoaders = (
   mode: string,
@@ -132,7 +132,7 @@ export const config = (mode: string): Record<string, unknown> => {
       path:
         mode === "development"
           ? path.resolve(__dirname, "tmp/assets")
-          : path.resolve(__dirname, "public/assets"),
+          : path.resolve(__dirname, "..", "public/assets"),
       publicPath:
         mode === "development"
           ? `http://localhost:${process.env.PORT}/assets/`

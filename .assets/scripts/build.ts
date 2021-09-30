@@ -1,6 +1,6 @@
+import chalk from "chalk"
 import path from "path"
 import rimraf from "rimraf"
-import chalk from "chalk"
 import webpack from "webpack"
 import { config } from "../webpack.config"
 
@@ -27,21 +27,21 @@ if (bundleConfig.output?.path != null) {
         process.exit()
       }
 
-      const mode = process.argv[2]
-      const compiler = webpack([bundleConfig])
+      const watching = webpack([bundleConfig]).watch(
+        {},
+        (_err, compilation): void => {
+          if (compilation === undefined) return
 
-      const watching = compiler.watch({}, (_err, compilation): void => {
-        if (compilation === undefined) return
+          compilation.stats.forEach((stats) => {
+            console.log(stats.toString({ colors: true }))
+          })
 
-        compilation.stats.forEach((stats) => {
-          console.log(stats.toString({ colors: true }))
-        })
-
-        if (mode === "production") {
-          watching.close(() => {})
-          if (compilation.hasErrors()) process.exit(1)
+          if (mode === "production") {
+            watching.close(() => {})
+            if (compilation.hasErrors()) process.exit(1)
+          }
         }
-      })
+      )
     }
   )
 }
