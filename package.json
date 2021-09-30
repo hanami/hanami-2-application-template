@@ -3,6 +3,7 @@
   "description": "Asset compilation with webpack",
   "version": "1.0.0",
   "author": "Your name here",
+  "license": "UNLICENSED",
   "repository": {},
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -83,7 +84,7 @@
     "lint": "eslint --ext js,jsx,ts,tsx . --cache",
     "start": "PORT=8080 concurrently \"TS_NODE_PROJECT=tsconfig.webpack.json ts-node ./scripts/build development\" \"serve -C ./tmp\" --kill-others --prefix-colors=yellow.dim,cyan.dim",
     "test": "jest",
-    "build-production": "npm run build",
-    "heroku-postbuild": "npm run build"
+    "build-production": "yarn run build",
+    "heroku-postbuild": "yarn run build"
   }
 }

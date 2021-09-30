@@ -1,2 +1,2 @@
 web: bundle exec guard --no-notify --no-interactions
-assets: npm run start
+assets: yarn run start
