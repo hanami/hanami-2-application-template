@@ -1,8 +1,8 @@
-import path from 'path'
-import rimraf from 'rimraf'
-import chalk from 'chalk'
-import webpack from 'webpack'
-import { config } from '../webpack.config'
+import path from "path"
+import rimraf from "rimraf"
+import chalk from "chalk"
+import webpack from "webpack"
+import { config } from "../webpack.config"
 
 /*
 Build webpack bundle
@@ -20,7 +20,7 @@ const bundleConfig = config(mode) as webpack.Configuration
 
 if (bundleConfig.output?.path != null) {
   rimraf(
-    path.resolve(bundleConfig.output.path, './*'),
+    path.resolve(bundleConfig.output.path, "./*"),
     (error?: Error | null): void => {
       if (error) {
         console.error(chalk.red(error))
@@ -37,7 +37,7 @@ if (bundleConfig.output?.path != null) {
           console.log(stats.toString({ colors: true }))
         })
 
-        if (mode === 'production') {
+        if (mode === "production") {
           watching.close(() => {})
           if (compilation.hasErrors()) process.exit(1)
         }

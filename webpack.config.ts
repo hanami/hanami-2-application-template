@@ -1,16 +1,16 @@
-import { WebpackManifestPlugin } from 'webpack-manifest-plugin'
-import cssnano from 'cssnano'
-import glob from 'glob'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import path from 'path'
-import postcssImport from 'postcss-import'
-import postcssPresetEnv from 'postcss-preset-env'
-import postcssUrl from 'postcss-url'
-const postcssCssVariables = require('postcss-css-variables')
+import { WebpackManifestPlugin } from "webpack-manifest-plugin"
+import cssnano from "cssnano"
+import glob from "glob"
+import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import path from "path"
+import postcssImport from "postcss-import"
+import postcssPresetEnv from "postcss-preset-env"
+import postcssUrl from "postcss-url"
+const postcssCssVariables = require("postcss-css-variables")
 
 // Path to slices
 // We expect that asset will exist at /:slice/assets/:entry
-const slicesPath = path.join(__dirname, 'slices')
+const slicesPath = path.join(__dirname, "slices")
 
 const cssLoaders = (
   mode: string,
@@ -18,11 +18,11 @@ const cssLoaders = (
 ): (string | object)[] => [
   MiniCssExtractPlugin.loader,
   {
-    loader: 'css-loader',
+    loader: "css-loader",
     options: { importLoaders: 1, modules },
   },
   {
-    loader: 'postcss-loader',
+    loader: "postcss-loader",
     options: {
       postcssOptions: {
         plugins: [
@@ -42,7 +42,7 @@ const cssLoaders = (
           }),
           // Polyfill
           postcssPresetEnv({ stage: 1 }),
-          mode === 'production' ? cssnano({ preset: 'default' }) : null,
+          mode === "production" ? cssnano({ preset: "default" }) : null,
         ].filter((plugin) => plugin),
       },
     },
@@ -57,8 +57,8 @@ export const config = (mode: string): Record<string, unknown> => {
     .sync(`${slicesPath}/*`)
     .map((dir: string) =>
       glob.sync(`${dir}/**/entry.{js,ts,tsx}`).map((entry) => {
-        const entryName = entry.includes('/assets/')
-          ? entry.split(`${dir}/assets/`).slice(-1)[0].split('/entry.')[0]
+        const entryName = entry.includes("/assets/")
+          ? entry.split(`${dir}/assets/`).slice(-1)[0].split("/entry.")[0]
           : path.basename(path.dirname(entry))
         return [`${path.basename(dir)}/${entryName}`, entry]
       })
@@ -73,7 +73,7 @@ export const config = (mode: string): Record<string, unknown> => {
     }, {})
 
   return {
-    devtool: 'cheap-module-source-map',
+    devtool: "cheap-module-source-map",
     entry,
     mode,
     module: {
@@ -82,28 +82,28 @@ export const config = (mode: string): Record<string, unknown> => {
         // other dependencies in node_modules.
         {
           test: /.*(?<!\.test)\.tsx?$/,
-          use: 'ts-loader',
+          use: "ts-loader",
           exclude: /node_modules/,
         },
         {
           test: /.*(?<!\.test)\.es\.js$/,
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
         {
           test: /.*(?<!\.test)\.esm\.js$/,
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
         {
           test: /.*(?<!\.test)\.js$/,
           exclude: /\/test\/$/i,
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
         {
           test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|mp3|mp4|webm|webp|mp4|m4v|pdf)$/,
           exclude: /\/test\/$/i,
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            name: '[path][name].[ext]',
+            name: "[path][name].[ext]",
           },
         },
         {
@@ -114,13 +114,13 @@ export const config = (mode: string): Record<string, unknown> => {
         {
           test: /\/components\/.+\.s?css$/i,
           use: cssLoaders(mode, {
-            localIdentName: '[path][name]__[local]',
+            localIdentName: "[path][name]__[local]",
           }),
         },
         {
           test: /\.ya?ml$/,
-          use: 'yaml-loader',
-          type: 'json',
+          use: "yaml-loader",
+          type: "json",
         },
       ],
     },
@@ -128,31 +128,30 @@ export const config = (mode: string): Record<string, unknown> => {
       usedExports: true,
     },
     output: {
-      filename: mode === 'development' ? '[name].js' : '[name].[chunkhash].js',
+      filename: mode === "development" ? "[name].js" : "[name].[chunkhash].js",
       path:
-        mode === 'development'
-          ? path.resolve(__dirname, 'tmp/assets')
-          : path.resolve(__dirname, 'public/assets'),
+        mode === "development"
+          ? path.resolve(__dirname, "tmp/assets")
+          : path.resolve(__dirname, "public/assets"),
       publicPath:
-        mode === 'development'
+        mode === "development"
           ? `http://localhost:${process.env.PORT}/assets/`
-          : '/assets/',
+          : "/assets/",
     },
     resolve: {
-      alias: {
-      },
-      extensions: ['.tsx', '.ts', '.js'],
-      mainFields: ['module', 'main'],
+      alias: {},
+      extensions: [".tsx", ".ts", ".js"],
+      mainFields: ["module", "main"],
     },
     plugins: [
       new MiniCssExtractPlugin({
-        chunkFilename: '[name].[chunkhash].css',
+        chunkFilename: "[name].[chunkhash].css",
         filename:
-          mode === 'development' ? '[name].css' : '[name].[contenthash].css',
+          mode === "development" ? "[name].css" : "[name].[contenthash].css",
         ignoreOrder: false,
       }),
       new WebpackManifestPlugin({
-        fileName: 'manifest.json',
+        fileName: "manifest.json",
       }),
     ],
   }
