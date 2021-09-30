@@ -56,7 +56,7 @@ export const config = (mode: string): Record<string, unknown> => {
   const entry = glob
     .sync(`${slicesPath}/*`)
     .map((dir: string) =>
-      glob.sync(`${dir}/**/entry.{js,ts,tsx}`).map((entry) => {
+      glob.sync(`${dir}/**/entry.{js,jsx,ts,tsx}`).map((entry) => {
         const entryName = entry.includes("/assets/")
           ? entry.split(`${dir}/assets/`).slice(-1)[0].split("/entry.")[0]
           : path.basename(path.dirname(entry))
