@@ -8,10 +8,6 @@ import postcssPresetEnv from "postcss-preset-env"
 import postcssUrl from "postcss-url"
 const postcssCssVariables = require("postcss-css-variables")
 
-// Path to slices
-// We expect that asset will exist at /:slice/assets/:entry
-const slicesPath = path.join(__dirname, "../slices")
-
 const cssLoaders = (
   mode: string,
   modules: Record<string, unknown> | boolean
@@ -55,7 +51,8 @@ export const config = (mode: string): Record<string, unknown> => ({
   // consistent naming convention so we can easily reference in templates:
   // `${sliceName}__${entryName}`
   entry: glob
-    .sync(`${slicesPath}/*`)
+    // We expect that the asset will exist at /:slice/assets/:entry
+    .sync(`${path.join(__dirname, "../slices")}/*`)
     .map((dir: string) =>
       glob.sync(`${dir}/**/entry.{js,jsx,ts,tsx}`).map((entry) => {
         const entryName = entry.includes("/assets/")
