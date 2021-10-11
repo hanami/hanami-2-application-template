@@ -75,46 +75,42 @@ export const config = (mode: string): Record<string, unknown> => ({
       // Use babel for *anything* matching *.es.js, including within
       // other dependencies in node_modules.
       {
+        exclude: /node_modules/,
         test: /.*(?<!\.test)\.tsx?$/,
         use: "ts-loader",
-        exclude: /node_modules/,
       },
       {
+        loader: "babel-loader",
         test: /.*(?<!\.test)\.es\.js$/,
-        loader: "babel-loader",
       },
       {
+        loader: "babel-loader",
         test: /.*(?<!\.test)\.esm\.js$/,
-        loader: "babel-loader",
       },
       {
-        test: /.*(?<!\.test)\.js$/,
         exclude: /\/test\/$/i,
         loader: "babel-loader",
+        test: /.*(?<!\.test)\.js$/,
       },
       {
-        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|mp3|mp4|webm|webp|mp4|m4v|pdf)$/,
         exclude: /\/test\/$/i,
         loader: "file-loader",
-        options: {
-          name: "[path][name].[ext]",
-        },
+        options: { name: "[path][name].[ext]" },
+        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|mp3|mp4|webm|webp|mp4|m4v|pdf)$/,
       },
       {
+        exclude: /\/components\/.+\.s?css$/i,
         test: /\.s?css$/i,
         use: cssLoaders(mode, false),
-        exclude: /\/components\/.+\.s?css$/i,
       },
       {
         test: /\/components\/.+\.s?css$/i,
-        use: cssLoaders(mode, {
-          localIdentName: "[path][name]__[local]",
-        }),
+        use: cssLoaders(mode, { localIdentName: "[path][name]__[local]" }),
       },
       {
         test: /\.ya?ml$/,
-        use: "yaml-loader",
         type: "json",
+        use: "yaml-loader",
       },
     ],
   },
