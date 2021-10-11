@@ -49,11 +49,12 @@ const cssLoaders = (
   },
 ]
 
-export const config = (mode: string): Record<string, unknown> => {
+export const config = (mode: string): Record<string, unknown> => ({
+  devtool: mode === "production" ? undefined : "cheap-module-source-map",
   // Find the entry points for each slice and create a set of entries with a
   // consistent naming convention so we can easily reference in templates:
   // `${sliceName}__${entryName}`
-  const entry = glob
+  entry: glob
     .sync(`${slicesPath}/*`)
     .map((dir: string) =>
       glob.sync(`${dir}/**/entry.{js,jsx,ts,tsx}`).map((entry) => {
@@ -70,89 +71,82 @@ export const config = (mode: string): Record<string, unknown> => {
       const [name, location] = entry
       output[name] = [location]
       return output
-    }, {})
-
-  return {
-    devtool: "cheap-module-source-map",
-    entry,
-    mode,
-    module: {
-      rules: [
-        // Use babel for *anything* matching *.es.js, including within
-        // other dependencies in node_modules.
-        {
-          test: /.*(?<!\.test)\.tsx?$/,
-          use: "ts-loader",
-          exclude: /node_modules/,
+    }, {}),
+  mode,
+  module: {
+    rules: [
+      // Use babel for *anything* matching *.es.js, including within
+      // other dependencies in node_modules.
+      {
+        test: /.*(?<!\.test)\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /.*(?<!\.test)\.es\.js$/,
+        loader: "babel-loader",
+      },
+      {
+        test: /.*(?<!\.test)\.esm\.js$/,
+        loader: "babel-loader",
+      },
+      {
+        test: /.*(?<!\.test)\.js$/,
+        exclude: /\/test\/$/i,
+        loader: "babel-loader",
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|mp3|mp4|webm|webp|mp4|m4v|pdf)$/,
+        exclude: /\/test\/$/i,
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext]",
         },
-        {
-          test: /.*(?<!\.test)\.es\.js$/,
-          loader: "babel-loader",
-        },
-        {
-          test: /.*(?<!\.test)\.esm\.js$/,
-          loader: "babel-loader",
-        },
-        {
-          test: /.*(?<!\.test)\.js$/,
-          exclude: /\/test\/$/i,
-          loader: "babel-loader",
-        },
-        {
-          test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|mp3|mp4|webm|webp|mp4|m4v|pdf)$/,
-          exclude: /\/test\/$/i,
-          loader: "file-loader",
-          options: {
-            name: "[path][name].[ext]",
-          },
-        },
-        {
-          test: /\.s?css$/i,
-          use: cssLoaders(mode, false),
-          exclude: /\/components\/.+\.s?css$/i,
-        },
-        {
-          test: /\/components\/.+\.s?css$/i,
-          use: cssLoaders(mode, {
-            localIdentName: "[path][name]__[local]",
-          }),
-        },
-        {
-          test: /\.ya?ml$/,
-          use: "yaml-loader",
-          type: "json",
-        },
-      ],
-    },
-    optimization: {
-      usedExports: true,
-    },
-    output: {
-      filename: mode === "development" ? "[name].js" : "[name].[chunkhash].js",
-      path:
-        mode === "development"
-          ? path.resolve(__dirname, "tmp/assets")
-          : path.resolve(__dirname, "..", "public/assets"),
-      publicPath:
-        mode === "development"
-          ? `http://localhost:${process.env.PORT}/assets/`
-          : "/assets/",
-    },
-    resolve: {
-      alias: {},
-      extensions: [".tsx", ".ts", ".js"],
-      mainFields: ["module", "main"],
-    },
-    plugins: [
-      new MiniCssExtractPlugin({
-        chunkFilename: "[name].[chunkhash].css",
-        filename:
-          mode === "development" ? "[name].css" : "[name].[contenthash].css",
-        ignoreOrder: false,
-      }),
-      new WebpackManifestPlugin({
-        fileName: "manifest.json",
-      }),
+      },
+      {
+        test: /\.s?css$/i,
+        use: cssLoaders(mode, false),
+        exclude: /\/components\/.+\.s?css$/i,
+      },
+      {
+        test: /\/components\/.+\.s?css$/i,
+        use: cssLoaders(mode, {
+          localIdentName: "[path][name]__[local]",
+        }),
+      },
+      {
+        test: /\.ya?ml$/,
+        use: "yaml-loader",
+        type: "json",
+      },
     ],
-  }
-}
+  },
+  optimization: {
+    usedExports: true,
+  },
+  output: {
+    filename: mode === "development" ? "[name].js" : "[name].[chunkhash].js",
+    path:
+      mode === "development"
+        ? path.resolve(__dirname, "tmp/assets")
+        : path.resolve(__dirname, "..", "public/assets"),
+    publicPath:
+      mode === "development"
+        ? `http://localhost:${process.env.PORT}/assets/`
+        : "/assets/",
+  },
+  resolve: {
+    alias: {},
+    extensions: [".tsx", ".ts", ".js"],
+    mainFields: ["module", "main"],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      chunkFilename: "[name].[chunkhash].css",
+      filename:
+        mode === "development" ? "[name].css" : "[name].[contenthash].css",
+      ignoreOrder: false,
+    }),
+    new WebpackManifestPlugin({ fileName: "manifest.json" }),
+  ],
+})
