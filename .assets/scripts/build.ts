@@ -1,8 +1,8 @@
+import { config } from "../webpack.config"
 import chalk from "chalk"
 import path from "path"
 import rimraf from "rimraf"
 import webpack from "webpack"
-import { config } from "../webpack.config"
 
 /*
 Build webpack bundle
