@@ -118,7 +118,7 @@ export const config = (mode: string): Record<string, unknown> => ({
     usedExports: true,
   },
   output: {
-    filename: mode === "development" ? "[name].js" : "[name].[chunkhash].js",
+    filename: mode === "development" ? "[name].js" : "[name].[contenthash].js",
     path:
       mode === "development"
         ? path.resolve(__dirname, "tmp/assets")
@@ -135,7 +135,7 @@ export const config = (mode: string): Record<string, unknown> => ({
   },
   plugins: [
     new MiniCssExtractPlugin({
-      chunkFilename: "[name].[chunkhash].css",
+      chunkFilename: "[name].[contenthash].css",
       filename:
         mode === "development" ? "[name].css" : "[name].[contenthash].css",
       ignoreOrder: false,
