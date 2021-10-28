@@ -12,7 +12,7 @@ gem "hanami", github: "hanami/hanami", branch: :main
 end
 
 # HTTP
-gem "puma", "~> 4.0"
+gem "puma", "~> 4.3"
 gem "down", "~> 5.1"
 
 # Database

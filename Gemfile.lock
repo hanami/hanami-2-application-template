@@ -191,7 +191,7 @@ GEM
       hansi (~> 0.2.0)
       mustermann (= 1.1.1)
     nenv (0.3.0)
-    nio4r (2.5.7)
+    nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
@@ -217,7 +217,7 @@ GEM
       eventmachine_httpserver
       http_parser.rb (~> 0.6.0)
       multi_json
-    puma (4.3.8)
+    puma (4.3.9)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -351,7 +351,7 @@ DEPENDENCIES
   pry
   pry-byebug
   puffing-billy (~> 2.2)
-  puma (~> 4.0)
+  puma (~> 4.3)
   rake (~> 13.0)
   rom (~> 5.2)
   rom-factory (~> 0.10)
