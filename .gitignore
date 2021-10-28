@@ -1,6 +1,5 @@
 # Installation
 /Brewfile.lock.json
-*.lock
 package-lock.json
 
 tmp/
