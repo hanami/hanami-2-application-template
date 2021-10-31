@@ -12,13 +12,12 @@ gem "hanami", github: "hanami/hanami", branch: :main
 end
 
 # HTTP
-gem "puma", "~> 4.0"
+gem "puma", "~> 4.3"
 gem "down", "~> 5.1"
 
 # Database
 gem "sqlite3"
 gem "rom", "~> 5.2"
-gem "rom-factory", "~> 0.10"
 gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
 
@@ -29,6 +28,7 @@ gem "dry-struct", "~> 1.0"
 gem "dry-types", "~> 1.0"
 gem "dry-validation", "~> 1.4"
 gem "dry-transformer", "~> 0.1"
+gem "dry-configurable", "~> 0.13"
 gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"
@@ -50,6 +50,7 @@ group :test do
   gem "cuprite", "~> 0.8"
   gem "database_cleaner-sequel", "~> 2.0"
   gem "puffing-billy", "~> 2.2"
+  gem "rom-factory", "~> 0.10"
   gem "rspec", "~> 3.9"
   gem "simplecov", "~> 0.17"
 end

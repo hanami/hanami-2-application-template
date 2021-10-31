@@ -9,7 +9,7 @@ require 'open3'
 class Installer
   class << self
     def call(app_name)
-      rename_app app_name
+      return unless rename_app(app_name)
       install_readme
       bundle_install
       generate_cli_binstub
@@ -21,6 +21,11 @@ class Installer
     private
 
     def rename_app(app_name)
+      if /[A-Z]/.match(app_name)
+        puts "Capital letters can lead to unexpected results."
+        puts "Underscore your app name instead (i.e. #{app_name.downcase})."
+        return false
+      end
       rename_file_contents(app_name)
       rename_file_names(app_name)
     end
@@ -48,7 +53,7 @@ class Installer
         new_name = orig_name.sub("app_prototype", app_name)
         FileUtils.mv(orig_name, new_name, force: true, verbose: true) unless orig_name == new_name
       end
-      dirs.reverse.each do |orig_name| 
+      dirs.reverse.each do |orig_name|
         new_name = orig_name.sub("app_prototype", app_name)
         FileUtils.mv(orig_name, new_name, force: true, verbose: true) unless orig_name == new_name
       end
@@ -167,7 +172,7 @@ class Installer
         unless exit_status.success?
           raise "#{command} failed with status #{exit_status}\n"
         end
-      end 
+      end
     end
 
   end
