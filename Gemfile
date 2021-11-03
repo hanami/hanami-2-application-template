@@ -6,7 +6,7 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", github: "hanami/hanami", branch: :main
+gem "hanami", github: "hanami/hanami", branch: "enhancement/elide-slice-name-in-lib"
 %w[hanami-cli hanami-controller hanami-router hanami-utils hanami-view].each do |name|
   gem name, "~> 2.0.0.alpha"
 end
@@ -16,6 +16,7 @@ gem "puma", "~> 4.3"
 gem "down", "~> 5.1"
 
 # Database
+gem "pg"
 gem "sqlite3"
 gem "rom", "~> 5.2"
 gem "rom-sql", "~> 3.2"

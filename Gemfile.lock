@@ -1,14 +1,15 @@
 GIT
   remote: https://github.com/hanami/hanami.git
-  revision: b449ef1ebaaf3e1056f5c1e882ddb326586c2811
-  branch: main
+  revision: 92c0104f5cf35118af9babda4d41742f4865e58d
+  branch: enhancement/elide-slice-name-in-lib
   specs:
     hanami (2.0.0.alpha2)
       bundler (>= 1.16, < 3)
+      dry-configurable (~> 0.12, >= 0.12.1)
       dry-core (~> 0.4)
       dry-inflector (~> 0.2, >= 0.2.1)
       dry-monitor
-      dry-system (~> 0.19, >= 0.19.0)
+      dry-system (~> 0.19, >= 0.21.0)
       hanami-cli (~> 2.0.alpha)
       hanami-utils (~> 2.0.alpha)
       zeitwerk (~> 2.4)
@@ -75,8 +76,8 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.4)
       dry-equalizer
-    dry-monitor (0.4.0)
-      dry-configurable (~> 0.5)
+    dry-monitor (0.5.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
       dry-core (~> 0.5, >= 0.5)
       dry-events (~> 0.2)
     dry-schema (1.7.0)
@@ -90,7 +91,7 @@ GEM
       dry-core (~> 0.5, >= 0.5)
       dry-types (~> 1.5)
       ice_nine (~> 0.11)
-    dry-system (0.20.0)
+    dry-system (0.21.0)
       concurrent-ruby (~> 1.0)
       dry-auto_inject (>= 0.4.0)
       dry-configurable (~> 0.13, >= 0.13.0)
@@ -202,6 +203,7 @@ GEM
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
+    pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -318,10 +320,11 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -348,6 +351,7 @@ DEPENDENCIES
   hanami-utils (~> 2.0.0.alpha)
   hanami-view (~> 2.0.0.alpha)
   i18n (~> 1.8)
+  pg
   pry
   pry-byebug
   puffing-billy (~> 2.2)
