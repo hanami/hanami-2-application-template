@@ -6,10 +6,12 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", github: "hanami/hanami", branch: "enhancement/elide-slice-name-in-lib"
-%w[hanami-cli hanami-controller hanami-router hanami-utils hanami-view].each do |name|
-  gem name, "~> 2.0.0.alpha"
-end
+gem "hanami", "~> 2.0.0.alpha"
+gem "hanami-cli", "~> 2.0.0.alpha"
+gem "hanami-controller", "~> 2.0.0.alpha"
+gem "hanami-router", "~> 2.0.0.alpha"
+gem "hanami-utils", "~> 2.0.0.alpha"
+gem "hanami-view", "~> 2.0.0.alpha"
 
 # HTTP
 gem "puma", "~> 4.3"
