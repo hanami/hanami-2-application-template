@@ -20,5 +20,8 @@
     "test": "jest",
     "build-production": "yarn run build",
     "heroku-postbuild": "yarn run build"
+  },
+  "dependencies": {
+    "prettier": "^2.4.1"
   }
 }
