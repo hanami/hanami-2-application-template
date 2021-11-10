@@ -1,12 +1,12 @@
-import { WebpackManifestPlugin } from "webpack-manifest-plugin"
-import cssnano from "cssnano"
-import glob from "glob"
-import MiniCssExtractPlugin from "mini-css-extract-plugin"
-import path from "path"
-import postcssImport from "postcss-import"
-import postcssPresetEnv from "postcss-preset-env"
-import postcssUrl from "postcss-url"
-const postcssCssVariables = require("postcss-css-variables")
+import { WebpackManifestPlugin } from "webpack-manifest-plugin";
+import cssnano from "cssnano";
+import glob from "glob";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import postcssImport from "postcss-import";
+import postcssPresetEnv from "postcss-preset-env";
+import postcssUrl from "postcss-url";
+const postcssCssVariables = require("postcss-css-variables");
 
 const cssLoaders = (
   mode: string,
@@ -43,7 +43,7 @@ const cssLoaders = (
       },
     },
   },
-]
+];
 
 export const config = (mode: string): Record<string, unknown> => ({
   devtool: mode === "production" ? undefined : "cheap-module-source-map",
@@ -57,17 +57,17 @@ export const config = (mode: string): Record<string, unknown> => ({
       glob.sync(`${dir}/**/entry.{js,jsx,ts,tsx}`).map((entry) => {
         const entryName = entry.includes("/assets/")
           ? entry.split(`${dir}/assets/`).slice(-1)[0].split("/entry.")[0]
-          : path.basename(path.dirname(entry))
-        return [`${path.basename(dir)}/${entryName}`, entry]
+          : path.basename(path.dirname(entry));
+        return [`${path.basename(dir)}/${entryName}`, entry];
       })
     )
     // Flatten
     .reduce((a, b) => a.concat(b), [])
     // Turn into `entry` object
     .reduce((output: Record<string, unknown>, entry) => {
-      const [name, location] = entry
-      output[name] = [location]
-      return output
+      const [name, location] = entry;
+      output[name] = [location];
+      return output;
     }, {}),
   mode,
   module: {
@@ -142,4 +142,4 @@ export const config = (mode: string): Record<string, unknown> => ({
     }),
     new WebpackManifestPlugin({ fileName: "manifest.json" }),
   ],
-})
+});

@@ -1,8 +1,8 @@
-import { config } from "../webpack.config"
-import chalk from "chalk"
-import path from "path"
-import rimraf from "rimraf"
-import webpack from "webpack"
+import { config } from "../webpack.config";
+import chalk from "chalk";
+import path from "path";
+import rimraf from "rimraf";
+import webpack from "webpack";
 
 /*
 Build webpack bundle
@@ -15,33 +15,33 @@ Build webpack bundle
 That's all. You won't even find a dev server in here!
 **********************************************************/
 
-const mode = process.argv[2]
-const bundleConfig = config(mode) as webpack.Configuration
+const mode = process.argv[2];
+const bundleConfig = config(mode) as webpack.Configuration;
 
 if (bundleConfig.output?.path != null) {
   rimraf(
     path.resolve(bundleConfig.output.path, "./*"),
     (error?: Error | null): void => {
       if (error) {
-        console.error(chalk.red(error))
-        process.exit()
+        console.error(chalk.red(error));
+        process.exit();
       }
 
       const watching = webpack([bundleConfig]).watch(
         {},
         (_err, compilation): void => {
-          if (compilation === undefined) return
+          if (compilation === undefined) return;
 
           compilation.stats.forEach((stats) => {
-            console.log(stats.toString({ colors: true }))
-          })
+            console.log(stats.toString({ colors: true }));
+          });
 
           if (mode === "production") {
-            watching.close(() => {})
-            if (compilation.hasErrors()) process.exit(1)
+            watching.close(() => {});
+            if (compilation.hasErrors()) process.exit(1);
           }
         }
-      )
+      );
     }
-  )
+  );
 }
