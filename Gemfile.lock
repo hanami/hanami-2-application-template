@@ -1,3 +1,29 @@
+GIT
+  remote: https://github.com/hanami/controller.git
+  revision: a1540fa283140d1c84cacd9dfae18c17028b4181
+  branch: feature/content-security-policy
+  specs:
+    hanami-controller (2.0.0.alpha3)
+      dry-configurable (~> 0.13, >= 0.13.0)
+      hanami-utils (~> 2.0.alpha)
+      rack (~> 2.0)
+
+GIT
+  remote: https://github.com/hanami/hanami.git
+  revision: b7110c3e486a2ace4690e8f0a03705e637070ba2
+  branch: feature/content-security-policy
+  specs:
+    hanami (2.0.0.alpha3)
+      bundler (>= 1.16, < 3)
+      dry-configurable (~> 0.12, >= 0.12.1)
+      dry-core (~> 0.4)
+      dry-inflector (~> 0.2, >= 0.2.1)
+      dry-monitor
+      dry-system (~> 0.19, >= 0.21.0)
+      hanami-cli (~> 2.0.alpha)
+      hanami-utils (~> 2.0.alpha)
+      zeitwerk (~> 2.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,26 +158,12 @@ GEM
       ffi
       guard (~> 2.3)
       spoon
-    hanami (2.0.0.alpha3)
-      bundler (>= 1.16, < 3)
-      dry-configurable (~> 0.12, >= 0.12.1)
-      dry-core (~> 0.4)
-      dry-inflector (~> 0.2, >= 0.2.1)
-      dry-monitor
-      dry-system (~> 0.19, >= 0.21.0)
-      hanami-cli (~> 2.0.alpha)
-      hanami-utils (~> 2.0.alpha)
-      zeitwerk (~> 2.4)
     hanami-cli (2.0.0.alpha3)
       bundler (~> 2.1)
       dry-cli (~> 0.6)
       dry-files (~> 0.1)
       dry-inflector (~> 0.2)
       rake (~> 13.0)
-    hanami-controller (2.0.0.alpha3)
-      dry-configurable (~> 0.13, >= 0.13.0)
-      hanami-utils (~> 2.0.alpha)
-      rack (~> 2.0)
     hanami-router (2.0.0.alpha5)
       mustermann (~> 1.0)
       mustermann-contrib (~> 1.0)
@@ -338,9 +350,9 @@ DEPENDENCIES
   dry-validation (~> 1.4)
   erbse (~> 0.1)
   guard-rack (~> 2.2)
-  hanami (~> 2.0.0.alpha)
+  hanami (~> 2.0.alpha)!
   hanami-cli (~> 2.0.0.alpha)
-  hanami-controller (~> 2.0.0.alpha)
+  hanami-controller (~> 2.0.alpha)!
   hanami-router (~> 2.0.0.alpha)
   hanami-utils (~> 2.0.0.alpha)
   hanami-view (~> 2.0.0.alpha)
