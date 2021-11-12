@@ -16,6 +16,5 @@ module AppPrototype
 
     # Assets
     setting :precompiled_assets, constructor: Types::Params::Bool, default: false
-    setting :assets_server_url, constructor: Types::String, default: "http://localhost:8080"
   end
 end
