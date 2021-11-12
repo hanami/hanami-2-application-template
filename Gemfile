@@ -6,9 +6,9 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/hanami.git", branch: "feature/content-security-policy"
+gem "hanami", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/hanami.git", branch: "main"
 gem "hanami-cli", "~> 2.0.0.alpha"
-gem "hanami-controller", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/controller.git", branch: "feature/content-security-policy"
+gem "hanami-controller", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/controller.git", branch: "main"
 gem "hanami-router", "~> 2.0.0.alpha"
 gem "hanami-utils", "~> 2.0.0.alpha"
 gem "hanami-view", "~> 2.0.0.alpha"

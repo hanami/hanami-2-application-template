@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/hanami/controller.git
-  revision: a1540fa283140d1c84cacd9dfae18c17028b4181
-  branch: feature/content-security-policy
+  revision: 3055cadb3791de3cf9227f46dfffe7ca691b59ae
+  branch: main
   specs:
     hanami-controller (2.0.0.alpha3)
       dry-configurable (~> 0.13, >= 0.13.0)
@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/hanami/hanami.git
-  revision: b7110c3e486a2ace4690e8f0a03705e637070ba2
-  branch: feature/content-security-policy
+  revision: 3a56d3bf25223bda47bafdc9e650085bbe85a92a
+  branch: main
   specs:
     hanami (2.0.0.alpha3)
       bundler (>= 1.16, < 3)
