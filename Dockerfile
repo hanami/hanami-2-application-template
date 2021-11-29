@@ -1,6 +1,6 @@
 FROM ruby:3-alpine
 
-RUN apk update && apk add build-base git sqlite-dev
+RUN apk update && apk add build-base git sqlite-dev postgresql-dev
 
 WORKDIR /app
 
