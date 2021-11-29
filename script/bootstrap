@@ -33,6 +33,6 @@ else
 
   if [ -f "package.json" ]; then
     echo "==> Installing node packages…"
-    yarn
+    npm install
   fi
 fi

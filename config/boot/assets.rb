@@ -9,7 +9,7 @@ Hanami.application.register_bootable :assets do |container|
     assets = Framework::Web::Assets.new(
       root: Hanami.application.root,
       precompiled: Hanami.env == :production || container[:settings].precompiled_assets,
-      server_url: container[:settings].assets_server_url
+      server_url: Hanami.application.configuration.assets.server_url
     )
 
     register "assets", assets

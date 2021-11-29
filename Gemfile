@@ -6,16 +6,19 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", github: "hanami/hanami", branch: :main
-%w[hanami-cli hanami-controller hanami-router hanami-utils hanami-view].each do |name|
-  gem name, "~> 2.0.0.alpha"
-end
+gem "hanami", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/hanami.git", branch: "main"
+gem "hanami-cli", "~> 2.0.0.alpha"
+gem "hanami-controller", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/controller.git", branch: "main"
+gem "hanami-router", "~> 2.0.0.alpha"
+gem "hanami-utils", "~> 2.0.0.alpha"
+gem "hanami-view", "~> 2.0.0.alpha"
 
 # HTTP
-gem "puma", "~> 4.0"
+gem "puma", "~> 4.3"
 gem "down", "~> 5.1"
 
 # Database
+gem "pg"
 gem "sqlite3"
 gem "rom", "~> 5.2"
 gem "rom-sql", "~> 3.2"
@@ -28,6 +31,7 @@ gem "dry-struct", "~> 1.0"
 gem "dry-types", "~> 1.0"
 gem "dry-validation", "~> 1.4"
 gem "dry-transformer", "~> 0.1"
+gem "dry-configurable", "~> 0.13"
 gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"

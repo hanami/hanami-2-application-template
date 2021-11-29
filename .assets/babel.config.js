@@ -1,5 +1,5 @@
-module.exports = api => {
-  api.cache(true);
+module.exports = (api) => {
+  api.cache(true)
   return {
     presets: [
       [
@@ -8,7 +8,7 @@ module.exports = api => {
           modules: false,
           useBuiltIns: "entry",
           corejs: {
-            version: 3
+            version: 3,
           },
           targets: {
             browsers: [
@@ -18,13 +18,13 @@ module.exports = api => {
               "not ie < 11",
               "iOS >= 8.4",
               "Safari >= 8",
-              "Android >= 4.4"
-            ]
-          }
-        }
+              "Android >= 4.4",
+            ],
+          },
+        },
       ],
       "@babel/preset-react",
     ],
-    sourceType: "unambiguous"
-  };
-};
+    sourceType: "unambiguous",
+  }
+}

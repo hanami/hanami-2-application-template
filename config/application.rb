@@ -16,9 +16,7 @@ module AppPrototype
       expire_after: 60 * 60 * 24 * 365 # 1 year
     }
 
-    config.logger = {
-      level: :debug,
-      stream: settings.log_to_stdout ? $stdout : "log/#{Hanami.env}.log"
-    }
+    config.logger.options[:level] = :debug
+    config.logger.options[:stream] = settings.log_to_stdout ? $stdout : "log/#{Hanami.env}.log"
   end
 end
