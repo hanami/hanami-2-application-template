@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "repository": {},
   "devDependencies": {
-    "application-assets": "file:.assets"
+    "application-assets": "file:.assets",
+    "prettier": "^2.4.1"
   },
   "engines": {
     "node": "16",
@@ -20,8 +21,5 @@
     "test": "jest",
     "build-production": "yarn run build",
     "heroku-postbuild": "yarn run build"
-  },
-  "dependencies": {
-    "prettier": "^2.4.1"
   }
 }
