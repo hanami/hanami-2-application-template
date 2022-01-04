@@ -9,5 +9,11 @@ cd "$(dirname "$0")/.."
 
 test -z "$HANAMI_ENV" && HANAMI_ENV='development'
 
+if ! command -v overmind > /dev/null; then
+  echo "You must install Overmind to use this script. See:"
+  echo " . https://github.com/DarthSim/overmind#installation"
+  exit 1
+fi
+
 # Boot the app and any other necessary processes
-OVERMIND_PORT=3000 overmind start -f Procfile.dev
+exec env OVERMIND_PORT=3000 overmind start -f Procfile.dev
