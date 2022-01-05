@@ -6,7 +6,7 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/hanami.git", branch: "main"
+gem "hanami", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/hanami.git", branch: "feature/logger-defaults"
 gem "hanami-cli", "~> 2.0.0.alpha"
 gem "hanami-controller", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/controller.git", branch: "main"
 gem "hanami-router", "~> 2.0.0.alpha"
