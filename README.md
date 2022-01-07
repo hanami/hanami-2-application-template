@@ -15,7 +15,9 @@ Then, once you’ve cloned your new repository, run:
 ./bin/install name_of_your_app
 ```
 
-This will rename all instances of `AppPrototype` within (in all its case
-variations) to the name of your application.
+This will rename all instances of `AppPrototype` within
+(in all its case variations) to the name of your application.
+
+Then move the `.env-example` file to `.env`, and update the values as necessary.
 
 See [README.app.md](README.app.md) for details of the generated application.
