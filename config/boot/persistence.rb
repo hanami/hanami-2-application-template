@@ -4,7 +4,11 @@ Hanami.application.register_bootable :persistence, namespace: true do |container
     require "rom/core"
     require "rom/sql"
 
-    rom_config = ROM::Configuration.new(:sql, container[:settings].database_url)
+    rom_config = ROM::Configuration.new(
+      :sql,
+      container[:settings].database_url,
+      migrator: { path: "db/migrations" }
+    )
 
     rom_config.plugin(:sql, relations: :instrumentation) do |plugin_config|
       plugin_config.notifications = notifications
