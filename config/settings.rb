@@ -5,9 +5,6 @@ require "hanami/application/settings"
 
 module AppPrototype
   class Settings < Hanami::Application::Settings
-    # Framework
-    setting :log_to_stdout, constructor: Types::Params::Bool, default: false
-
     # Database
     setting :database_url, constructor: Types::String
 
