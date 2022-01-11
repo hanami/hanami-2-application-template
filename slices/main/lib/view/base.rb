@@ -9,7 +9,7 @@ module Main
       # This will eventually be automatic via Hanami 2 view integration
       config.inflector = Hanami.application[:inflector]
       config.part_namespace = Parts
-      config.paths = ["slices/main/templates"]
+      config.paths = ["slices/main/templates"] # TODO: Remove once hanami/view#199 is merged
     end
   end
 end
