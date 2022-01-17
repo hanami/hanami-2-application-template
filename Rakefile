@@ -10,8 +10,8 @@ task :environment do
 end
 
 namespace :db do
- task :setup do
-   require "hanami/init" # TODO: Switch this to just boot what we need
-   ROM::SQL::RakeSupport.env = Hanami.application.container["persistence.rom"]
- end
+  task :setup do
+    require "hanami/init" # TODO: We should be able to just `.container.start(:persistence)`?
+    ROM::SQL::RakeSupport.env = Hanami.application.container["persistence.rom"]
+  end
 end
