@@ -7,7 +7,7 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-if [ "$1" == "docker" ]; then
+if [ "$1" = "docker" ]; then
   docker-compose run --rm app "bundle"
   docker-compose run --rm --entrypoint "/bin/sh -lc" assets "npm install"
 else
