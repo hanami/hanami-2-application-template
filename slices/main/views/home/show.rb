@@ -3,7 +3,7 @@
 module Main
   module Views
     module Home
-      class Show < View::Base
+      class Show < Main::View
       end
     end
   end
