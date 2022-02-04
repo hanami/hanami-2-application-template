@@ -3,7 +3,7 @@
 require "hanami/view/context"
 
 module AppPrototype
-  module View
+  class View < Hanami::View
     class Context < Hanami::View::Context
       include Deps[
         "assets",
