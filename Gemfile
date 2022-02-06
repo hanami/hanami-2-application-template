@@ -6,7 +6,8 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", "~> 2.0.alpha"
+gem "hanami", github: "hanami/hanami"
+gem "dry-system", github: "dry-rb/dry-system"
 gem "hanami-cli", "~> 2.0.0.alpha"
 gem "hanami-controller", "~> 2.0.alpha"
 gem "hanami-router", "~> 2.0.0.alpha"
