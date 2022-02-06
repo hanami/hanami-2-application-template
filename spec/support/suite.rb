@@ -31,12 +31,12 @@ module Test
     end
 
     def application
-      @application ||= init_application
+      @application ||= prepare_application
     end
 
-    def init_application
+    def prepare_application
       require_relative "../../config/application"
-      @application = Hanami.init
+      @application = Hanami.prepare
     end
 
     def start_coverage
