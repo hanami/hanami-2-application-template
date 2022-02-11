@@ -15,7 +15,7 @@ gem "hanami-utils", "~> 2.0.0.alpha"
 gem "hanami-view", "~> 2.0.0.alpha"
 
 # HTTP
-gem "puma", "~> 5.5"
+gem "puma", "~> 5.6"
 gem "down", "~> 5.1"
 
 # Database
