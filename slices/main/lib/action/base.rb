@@ -4,6 +4,8 @@
 require "app_prototype/action/base"
 
 module Main
-  class Action < AppPrototype::Action::Base
+  module Action
+    class Base < AppPrototype::Action::Base
+    end
   end
 end
