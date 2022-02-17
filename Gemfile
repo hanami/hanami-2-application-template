@@ -12,7 +12,8 @@ gem "hanami-cli", "~> 2.0.0.alpha"
 gem "hanami-controller", "~> 2.0.alpha"
 gem "hanami-router", "~> 2.0.0.alpha"
 gem "hanami-utils", "~> 2.0.0.alpha"
-gem "hanami-view", "~> 2.0.0.alpha"
+# gem "hanami-view", "~> 2.0.0.alpha"
+gem "hanami-view", github: "hanami/view", branch: "enhancement/views-structure"
 
 # HTTP
 gem "puma", "~> 5.6"
