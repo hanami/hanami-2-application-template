@@ -28,10 +28,10 @@ GIT
 
 GIT
   remote: https://github.com/hanami/view.git
-  revision: a01d0a9e88f5510f1e0a6c181ef82c9c59b344f0
+  revision: d102e13bdf6b20c7a088d421fafe7124ba317b06
   branch: enhancement/views-structure
   specs:
-    hanami-view (2.0.0.alpha5)
+    hanami-view (2.0.0.alpha6)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.13, >= 0.13.0)
       dry-core (~> 0.5, >= 0.5)
