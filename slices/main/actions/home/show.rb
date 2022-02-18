@@ -3,7 +3,7 @@
 module Main
   module Actions
     module Home
-      class Show < Main::Action::Base
+      class Show < Action::Base
       end
     end
   end
