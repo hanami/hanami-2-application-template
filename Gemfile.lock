@@ -13,8 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/hanami/hanami.git
-  revision: d5585ea7e8c3b0c7dfdc06b103d156d619fbbc0b
-  branch: enhancement/actions-views-structure
+  revision: 5ab5df963d0f893db07f1fe597737e2a6951b75c
   specs:
     hanami (2.0.0.alpha6)
       bundler (>= 1.16, < 3)
@@ -29,7 +28,7 @@ GIT
 
 GIT
   remote: https://github.com/hanami/view.git
-  revision: 65c1a0f88e3d9e10528a8cf60c4ca9ff06464146
+  revision: 7c748e53dbfcc4668803ccac708a56f9ed146844
   branch: enhancement/views-structure
   specs:
     hanami-view (2.0.0.alpha6)
