@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require "hanami/view/context"
+require "hanami/view/part"
 
 module AppPrototype
   module View
-    class Context < Hanami::View::Context
+    class Part < Hanami::View::Part
     end
   end
 end
