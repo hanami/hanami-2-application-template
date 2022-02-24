@@ -12,6 +12,16 @@ GIT
       dry-struct (~> 1.0)
 
 GIT
+  remote: https://github.com/hanami/controller.git
+  revision: 7c0125745bd28e2eebcd461a20b49ec6a3473e8b
+  branch: enhancement/content-security-policy-feb-2022
+  specs:
+    hanami-controller (2.0.0.alpha6)
+      dry-configurable (~> 0.13, >= 0.13.0)
+      hanami-utils (~> 2.0.alpha)
+      rack (~> 2.0)
+
+GIT
   remote: https://github.com/hanami/hanami.git
   revision: 5ab5df963d0f893db07f1fe597737e2a6951b75c
   specs:
@@ -169,10 +179,6 @@ GEM
       dry-files (~> 0.1)
       dry-inflector (~> 0.2)
       rake (~> 13.0)
-    hanami-controller (2.0.0.alpha6)
-      dry-configurable (~> 0.13, >= 0.13.0)
-      hanami-utils (~> 2.0.alpha)
-      rack (~> 2.0)
     hanami-router (2.0.0.alpha6)
       mustermann (~> 1.0)
       mustermann-contrib (~> 1.0)
@@ -357,7 +363,7 @@ DEPENDENCIES
   guard-rack (~> 2.2)
   hanami!
   hanami-cli (~> 2.0.0.alpha)
-  hanami-controller (~> 2.0.alpha)
+  hanami-controller!
   hanami-router (~> 2.0.0.alpha)
   hanami-utils (~> 2.0.0.alpha)
   hanami-view!

@@ -2,7 +2,7 @@
 import "core-js/stable"
 
 // Import base JS/CSS definitions
-import "./index.ts"
+import "./index.tsx"
 import "./index.css"
 
 // This will inspect all subdirectories from the context (this file) and
