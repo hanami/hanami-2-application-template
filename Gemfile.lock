@@ -1,42 +1,3 @@
-GIT
-  remote: https://github.com/dry-rb/dry-system.git
-  revision: 1b379fca83e3c5f246b4c6e01e69017d6537dac8
-  specs:
-    dry-system (0.23.0)
-      concurrent-ruby (~> 1.0)
-      dry-auto_inject (>= 0.4.0)
-      dry-configurable (~> 0.14, >= 0.14.0)
-      dry-container (~> 0.9, >= 0.9.0)
-      dry-core (~> 0.5, >= 0.5)
-      dry-inflector (~> 0.1, >= 0.1.2)
-      dry-struct (~> 1.0)
-
-GIT
-  remote: https://github.com/hanami/hanami.git
-  revision: 5ab5df963d0f893db07f1fe597737e2a6951b75c
-  specs:
-    hanami (2.0.0.alpha6)
-      bundler (>= 1.16, < 3)
-      dry-configurable (~> 0.12, >= 0.12.1)
-      dry-core (~> 0.4)
-      dry-inflector (~> 0.2, >= 0.2.1)
-      dry-monitor
-      dry-system (~> 0.23, >= 0.23.0)
-      hanami-cli (~> 2.0.alpha)
-      hanami-utils (~> 2.0.alpha)
-      zeitwerk (~> 2.4)
-
-GIT
-  remote: https://github.com/hanami/view.git
-  revision: bbb1c8944f2c4da3288846551c48c990615bfe97
-  specs:
-    hanami-view (2.0.0.alpha6)
-      concurrent-ruby (~> 1.0)
-      dry-configurable (~> 0.13, >= 0.13.0)
-      dry-core (~> 0.5, >= 0.5)
-      dry-inflector (~> 0.1)
-      tilt (~> 2.0, >= 2.0.6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,7 +26,7 @@ GEM
       capybara (>= 2.1, < 4)
       ferrum (~> 0.11.0)
     database_cleaner-core (2.0.1)
-    database_cleaner-sequel (2.0.0)
+    database_cleaner-sequel (2.0.2)
       database_cleaner-core (~> 2.0.0)
       sequel
     diff-lcs (1.5.0)
@@ -114,6 +75,14 @@ GEM
       dry-core (~> 0.5, >= 0.5)
       dry-types (~> 1.5)
       ice_nine (~> 0.11)
+    dry-system (0.23.0)
+      concurrent-ruby (~> 1.0)
+      dry-auto_inject (>= 0.4.0)
+      dry-configurable (~> 0.14, >= 0.14.0)
+      dry-container (~> 0.9, >= 0.9.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-inflector (~> 0.1, >= 0.1.2)
+      dry-struct (~> 1.0)
     dry-transformer (0.1.1)
     dry-types (1.5.1)
       concurrent-ruby (~> 1.0)
@@ -141,8 +110,8 @@ GEM
       temple
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    faker (2.19.0)
-      i18n (>= 1.6, < 2)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     ferrum (0.11)
       addressable (~> 2.5)
       cliver (~> 0.3)
@@ -163,6 +132,16 @@ GEM
       ffi
       guard (~> 2.3)
       spoon
+    hanami (2.0.0.alpha7.1)
+      bundler (>= 1.16, < 3)
+      dry-configurable (~> 0.12, >= 0.12.1)
+      dry-core (~> 0.4)
+      dry-inflector (~> 0.2, >= 0.2.1)
+      dry-monitor
+      dry-system (~> 0.23, >= 0.23.0)
+      hanami-cli (~> 2.0.alpha)
+      hanami-utils (~> 2.0.alpha)
+      zeitwerk (~> 2.4)
     hanami-cli (2.0.0.alpha6.1)
       bundler (~> 2.1)
       dry-cli (~> 0.6)
@@ -180,6 +159,12 @@ GEM
     hanami-utils (2.0.0.alpha6)
       concurrent-ruby (~> 1.0)
       dry-transformer (~> 0.1)
+    hanami-view (2.0.0.alpha7)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-inflector (~> 0.1)
+      tilt (~> 2.0, >= 2.0.6)
     hansi (0.2.0)
     http_parser.rb (0.6.0)
     i18n (1.10.0)
@@ -302,7 +287,7 @@ GEM
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
-    sequel (5.53.0)
+    sequel (5.54.0)
     shellany (0.0.1)
     simplecov (0.21.2)
       docile (~> 1.1)
@@ -349,18 +334,17 @@ DEPENDENCIES
   dry-matcher (~> 0.8)
   dry-monads (~> 1.2)
   dry-struct (~> 1.0)
-  dry-system!
   dry-transformer (~> 0.1)
   dry-types (~> 1.0)
   dry-validation (~> 1.4)
   erbse (~> 0.1)
   guard-rack (~> 2.2)
-  hanami!
+  hanami (~> 2.0.0.alpha)
   hanami-cli (~> 2.0.0.alpha)
   hanami-controller (~> 2.0.alpha)
   hanami-router (~> 2.0.0.alpha)
   hanami-utils (~> 2.0.0.alpha)
-  hanami-view!
+  hanami-view (~> 2.0.0.alpha)
   i18n (~> 1.8)
   pg
   pry
