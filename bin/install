@@ -149,7 +149,7 @@ class Installer
 
     def self_destruct
       FileUtils.rm(".github/FUNDING.yml", force: true, verbose: true)
-      FileUtils.rm("rm bin/install", force: true, verbose: true)
+      FileUtils.rm("bin/install", force: true, verbose: true)
     end
 
     def camelize(string)
