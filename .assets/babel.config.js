@@ -1,5 +1,5 @@
 module.exports = (api) => {
-  api.cache(true)
+  api.cache(true);
   return {
     presets: [
       [
@@ -26,5 +26,5 @@ module.exports = (api) => {
       "@babel/preset-react",
     ],
     sourceType: "unambiguous",
-  }
-}
+  };
+};

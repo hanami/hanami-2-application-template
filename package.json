@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "repository": {},
   "devDependencies": {
-    "application-assets": "file:.assets"
+    "application-assets": "file:.assets",
+    "prettier": "^2.4.1"
   },
   "engines": {
     "node": "16",
