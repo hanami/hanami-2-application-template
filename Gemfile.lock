@@ -142,7 +142,7 @@ GEM
       hanami-cli (~> 2.0.alpha)
       hanami-utils (~> 2.0.alpha)
       zeitwerk (~> 2.4)
-    hanami-cli (2.0.0.alpha8)
+    hanami-cli (2.0.0.alpha8.1)
       bundler (~> 2.1)
       dry-cli (~> 0.6)
       dry-files (~> 0.1)
