@@ -48,13 +48,14 @@ class Installer
     end
 
     def rename_file_names(app_name)
+      snake_name = app_name.tr("-", "_")
       files, dirs = find_files_for_rename.partition{ |f| File.file? f }
       files.each do |orig_name|
-        new_name = orig_name.sub("app_prototype", app_name)
+        new_name = orig_name.sub("app_prototype", snake_name)
         FileUtils.mv(orig_name, new_name, force: true, verbose: true) unless orig_name == new_name
       end
       dirs.reverse.each do |orig_name|
-        new_name = orig_name.sub("app_prototype", app_name)
+        new_name = orig_name.sub("app_prototype", snake_name)
         FileUtils.mv(orig_name, new_name, force: true, verbose: true) unless orig_name == new_name
       end
     end
