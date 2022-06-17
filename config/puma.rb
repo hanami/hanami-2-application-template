@@ -20,10 +20,10 @@ preload_app!
 rackup DefaultRackup
 
 # Specify the port that Puma will listen on
-port ENV.fetch("PORT") { 2300 }
+port ENV.fetch("PORT", 2300)
 
 # Specify the environment Puma will run in
-environment ENV.fetch("HANAMI_ENV") { "development" }
+environment ENV.fetch("HANAMI_ENV", "development")
 
 # Shutdown the application before forking
 before_fork do
