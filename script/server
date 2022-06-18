@@ -1,5 +1,0 @@
-#!/bin/sh
-
-set -eo pipefail
-
-bundle exec puma -C config/puma.rb

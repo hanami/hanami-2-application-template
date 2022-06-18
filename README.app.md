@@ -6,19 +6,19 @@ This is an Hanami 2 application.
 
 To set up the app:
 
-```
-./script/setup
+```sh
+$ ./bin/setup
 ```
 
 To run the tests:
 
-```
-./script/test
+```sh
+$ bundle exec rake
 ```
 
 To start the app:
 
-```
-./script/server
+```sh
+$ bundle exec puma -C config/puma.rb
 ```
 
