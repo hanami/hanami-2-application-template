@@ -21,4 +21,3 @@ To start the app:
 ```sh
 $ bundle exec puma -C config/puma.rb
 ```
-
