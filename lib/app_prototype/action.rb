@@ -3,8 +3,6 @@
 require "hanami/application/action"
 
 module AppPrototype
-  module Action
-    class Base < Hanami::Application::Action
-    end
+  class Action < Hanami::Application::Action
   end
 end
