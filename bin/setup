@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -eo pipefail
+
+if [ ! -f ".env" ]; then
+  echo "==> Creating .env file"
+  cp .env-example .env
+fi
+
+cd "$(dirname "$0")/.."
+bundle
+
+echo "\n==> App is now ready to go!"

@@ -26,4 +26,4 @@ jobs:
       - name: Prepare env
         run: cp .env-example .env
       - name: Run all tests
-        run: bundle exec rake spec:main
+        run: bundle exec rake

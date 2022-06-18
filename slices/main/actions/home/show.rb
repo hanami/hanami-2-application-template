@@ -3,7 +3,10 @@
 module Main
   module Actions
     module Home
-      class Show < Action::Base
+      class Show < Main::Action
+        def handle(*, res)
+          res.body = "Welcome to AppPrototype"
+        end
       end
     end
   end
