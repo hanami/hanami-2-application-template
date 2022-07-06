@@ -1,7 +1,7 @@
 # auto_register: false
 # frozen_string_literal: true
 
-module Main
-  class Action < AppPrototype::Action
+module AppPrototype
+  class Action < Hanami::Action
   end
 end

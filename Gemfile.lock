@@ -1,3 +1,47 @@
+GIT
+  remote: https://github.com/dry-rb/dry-container.git
+  revision: 299e25bb4d497d06d2b4cc6db621c0dff464f323
+  branch: accept-block-with-merge
+  specs:
+    dry-container (0.9.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
+
+GIT
+  remote: https://github.com/dry-rb/dry-files.git
+  revision: 9b6fb5241045f567efcac21ab305cea68632b579
+  specs:
+    dry-files (0.1.0)
+
+GIT
+  remote: https://github.com/dry-rb/dry-system.git
+  revision: de908f5549162761f72d8aab3125a93a74243e32
+  branch: prefer-local-components-when-importing
+  specs:
+    dry-system (0.24.0)
+      concurrent-ruby (~> 1.0)
+      dry-auto_inject (>= 0.4.0)
+      dry-configurable (~> 0.14, >= 0.14.0)
+      dry-container (~> 0.9, >= 0.9.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-inflector (~> 0.1, >= 0.1.2)
+
+GIT
+  remote: https://github.com/hanami/hanami.git
+  revision: 4587aa2d16966efbcd97a06e8cc4fa5957d58543
+  specs:
+    hanami (2.0.0.alpha8)
+      bundler (>= 1.16, < 3)
+      dry-configurable (~> 0.15)
+      dry-core (~> 0.7)
+      dry-inflector (~> 0.2, >= 0.2.1)
+      dry-monitor (~> 0.5)
+      dry-system (~> 0.24)
+      dry-types (~> 1.5)
+      hanami-cli (~> 2.0.alpha)
+      hanami-utils (~> 2.0.alpha)
+      zeitwerk (~> 2.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -22,15 +66,11 @@ GEM
     dry-configurable (0.15.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
-    dry-container (0.9.0)
-      concurrent-ruby (~> 1.0)
-      dry-configurable (~> 0.13, >= 0.13.0)
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
     dry-events (0.3.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
-    dry-files (0.1.0)
     dry-inflector (0.2.1)
     dry-initializer (3.1.1)
     dry-logic (1.2.0)
@@ -40,20 +80,13 @@ GEM
       dry-configurable (~> 0.13, >= 0.13.0)
       dry-core (~> 0.5, >= 0.5)
       dry-events (~> 0.2)
-    dry-schema (1.9.2)
+    dry-schema (1.9.3)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.13, >= 0.13.0)
       dry-core (~> 0.5, >= 0.5)
       dry-initializer (~> 3.0)
       dry-logic (~> 1.0)
       dry-types (~> 1.5)
-    dry-system (0.24.0)
-      concurrent-ruby (~> 1.0)
-      dry-auto_inject (>= 0.4.0)
-      dry-configurable (~> 0.14, >= 0.14.0)
-      dry-container (~> 0.9, >= 0.9.0)
-      dry-core (~> 0.5, >= 0.5)
-      dry-inflector (~> 0.1, >= 0.1.2)
     dry-transformer (0.1.1)
     dry-types (1.5.1)
       concurrent-ruby (~> 1.0)
@@ -67,16 +100,6 @@ GEM
       dry-core (~> 0.5, >= 0.5)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.8, >= 1.8.0)
-    hanami (2.0.0.alpha8)
-      bundler (>= 1.16, < 3)
-      dry-configurable (~> 0.12, >= 0.12.1)
-      dry-core (~> 0.4)
-      dry-inflector (~> 0.2, >= 0.2.1)
-      dry-monitor
-      dry-system (~> 0.23, >= 0.23.0)
-      hanami-cli (~> 2.0.alpha)
-      hanami-utils (~> 2.0.alpha)
-      zeitwerk (~> 2.4)
     hanami-cli (2.0.0.alpha8.1)
       bundler (~> 2.1)
       dry-cli (~> 0.6)
@@ -121,9 +144,9 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3.1)
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    rack (2.2.4)
+    rack-test (2.0.2)
+      rack (>= 1.3)
     rake (13.0.6)
     regexp_parser (2.5.0)
     rspec (3.11.0)
@@ -155,9 +178,12 @@ PLATFORMS
 DEPENDENCIES
   capybara
   dotenv
+  dry-container!
+  dry-files!
+  dry-system!
   dry-types (~> 1.0)
   dry-validation (~> 1.4)
-  hanami (~> 2.0.0.alpha)
+  hanami (~> 2.0.0.alpha)!
   hanami-cli (~> 2.0.0.alpha)
   hanami-controller (~> 2.0.0.alpha)
   hanami-router (~> 2.0.0.alpha)

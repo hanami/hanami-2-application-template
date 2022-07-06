@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require "app_prototype/types"
-require "hanami/application/settings"
 
 module AppPrototype
-  class Settings < Hanami::Application::Settings
+  class Settings < Hanami::Settings
     # Database
     setting :database_url, constructor: Types::String
 
