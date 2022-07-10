@@ -1,4 +1,24 @@
 GIT
+  remote: https://github.com/hanami/cli.git
+  revision: b367e5ad2d27decc90d2b33d3bdfdb84e0c07c43
+  specs:
+    hanami-cli (2.0.0.alpha8.1)
+      bundler (~> 2.1)
+      dry-cli (~> 0.7)
+      dry-files (~> 0.2, >= 0.2.0)
+      dry-inflector (~> 0.2)
+      rake (~> 13.0)
+
+GIT
+  remote: https://github.com/hanami/controller.git
+  revision: aaeedbefc53ecb179622c9fcd95f0060714a06aa
+  specs:
+    hanami-controller (2.0.0.alpha8)
+      dry-configurable (~> 0.13, >= 0.13.0)
+      hanami-utils (~> 2.0.alpha)
+      rack (~> 2.0)
+
+GIT
   remote: https://github.com/hanami/hanami.git
   revision: 3f79d0e3071f4dd6e36f2b198aec415783b0482f
   specs:
@@ -13,6 +33,23 @@ GIT
       hanami-cli (~> 2.0.alpha)
       hanami-utils (~> 2.0.alpha)
       zeitwerk (~> 2.4)
+
+GIT
+  remote: https://github.com/hanami/router.git
+  revision: 753b71ebdc759c8bafd1869a5abd8a33aafb1482
+  specs:
+    hanami-router (2.0.0.alpha6)
+      mustermann (~> 1.0)
+      mustermann-contrib (~> 1.0)
+      rack (~> 2.0)
+
+GIT
+  remote: https://github.com/hanami/utils.git
+  revision: 7ef19f3ad550dd0b0fc902111fa9f608a3833073
+  specs:
+    hanami-utils (2.0.0.alpha6)
+      concurrent-ruby (~> 1.0)
+      dry-transformer (~> 0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -83,23 +120,6 @@ GEM
       dry-core (~> 0.5, >= 0.5)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.8, >= 1.8.0)
-    hanami-cli (2.0.0.alpha8.1)
-      bundler (~> 2.1)
-      dry-cli (~> 0.6)
-      dry-files (~> 0.1)
-      dry-inflector (~> 0.2)
-      rake (~> 13.0)
-    hanami-controller (2.0.0.alpha8)
-      dry-configurable (~> 0.13, >= 0.13.0)
-      hanami-utils (~> 2.0.alpha)
-      rack (~> 2.0)
-    hanami-router (2.0.0.alpha6)
-      mustermann (~> 1.0)
-      mustermann-contrib (~> 1.0)
-      rack (~> 2.0)
-    hanami-utils (2.0.0.alpha6)
-      concurrent-ruby (~> 1.0)
-      dry-transformer (~> 0.1)
     hansi (0.2.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
@@ -164,10 +184,10 @@ DEPENDENCIES
   dry-types (~> 1.0)
   dry-validation (~> 1.4)
   hanami (~> 2.0.0.alpha)!
-  hanami-cli (~> 2.0.0.alpha)
-  hanami-controller (~> 2.0.0.alpha)
-  hanami-router (~> 2.0.0.alpha)
-  hanami-utils (~> 2.0.0.alpha)
+  hanami-cli (~> 2.0.0.alpha)!
+  hanami-controller (~> 2.0.0.alpha)!
+  hanami-router (~> 2.0.0.alpha)!
+  hanami-utils (~> 2.0.0.alpha)!
   i18n (~> 1.8)
   pry
   puma (~> 5.6)

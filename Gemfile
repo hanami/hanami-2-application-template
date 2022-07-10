@@ -4,10 +4,10 @@ source "https://rubygems.org/"
 
 # Application framework
 gem "hanami", "~> 2.0.0.alpha", github: "hanami/hanami"
-gem "hanami-cli", "~> 2.0.0.alpha"
-gem "hanami-controller", "~> 2.0.0.alpha"
-gem "hanami-router", "~> 2.0.0.alpha"
-gem "hanami-utils", "~> 2.0.0.alpha"
+gem "hanami-cli", "~> 2.0.0.alpha", github: "hanami/cli"
+gem "hanami-controller", "~> 2.0.0.alpha", github: "hanami/controller"
+gem "hanami-router", "~> 2.0.0.alpha", github: "hanami/router"
+gem "hanami-utils", "~> 2.0.0.alpha", github: "hanami/utils"
 gem "puma", "~> 5.6"
 gem "rake", "~> 13.0"
 
