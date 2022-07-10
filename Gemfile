@@ -11,11 +11,6 @@ gem "hanami-utils", "~> 2.0.0.alpha"
 gem "puma", "~> 5.6"
 gem "rake", "~> 13.0"
 
-# Temporary
-gem "dry-files", github: "dry-rb/dry-files"
-gem "dry-system", github: "dry-rb/dry-system", branch: "prefer-local-components-when-importing"
-gem "dry-container", github: "dry-rb/dry-container", branch: "accept-block-with-merge"
-
 # Application
 gem "dry-types", "~> 1.0"
 gem "dry-validation", "~> 1.4"
