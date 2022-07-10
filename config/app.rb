@@ -3,7 +3,7 @@
 require "hanami"
 
 module AppPrototype
-  class Application < Hanami::Application
+  class App < Hanami::App
     config.sessions = :cookie, {
       key: "app_prototype.session",
       secret: settings.session_secret,
