@@ -2,5 +2,5 @@
 
 require "capybara/rspec"
 
-Capybara.app = Hanami.rack_app
+Capybara.app = Hanami.app
 Capybara.server = :puma, {Silent: true}
