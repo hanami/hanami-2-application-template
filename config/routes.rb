@@ -2,8 +2,6 @@
 
 module AppPrototype
   class Routes < Hanami::Routes
-    define do
-      root to: "home.show"
-    end
+    root to: "home.show"
   end
 end
